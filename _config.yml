@@ -1,1 +1,9 @@
 theme: jekyll-theme-cayman
+
+title: On EMV payments security
+description: David Basin, Ralf Sasse, and Jorge Toro | ETH Zürich
+
+show_dowloads: false
+
+github:
+  is_project_page: false
