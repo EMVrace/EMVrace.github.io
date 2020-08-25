@@ -1,11 +1,10 @@
 
 EMV is the international protocol standard for smartcard payment and runs used in over 9 billion cards worldwide, as of December 2019. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
-Our paper *The EMV Standard: Break, Fix, Verify*, accepted for the [2021 IEEE Symposium on Security and Privacy (S&P)](https://www.ieee-security.org/TC/SP2021/index.html), presents a comprehensive model of EMV specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a ***PIN bypass attack*** for transactions that are presumably protected by cardholder verification, typically those whose amount is above a local upper limit. This means that your PIN won't prevent criminals from using your Visa card to pay for their high-value transactions. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
+Our work titled **The EMV Standard: Break, Fix, Verify**,  which will be presented at the [2021 IEEE Symposium on Security and Privacy (S&P)](https://www.ieee-security.org/TC/SP2021/index.html), presents a comprehensive model of EMV specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a PIN bypass attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above a local upper limit. This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their high-value transactions. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
 
-<!--A preprint version of the paper is available [here](https://arxiv.org/abs/2006.08249) and the full set of Tamarin models and proofs are at [https://github.com/EMVrace/EMVerify](https://github.com/EMVrace/EMVerify). To interpret/read our models and proofs, background on Tamarin is needed.-->
-
-Disclaimer: The information presented in this page as well as in our paper is merely for research. **Do NOT use it for criminal purposes**.
+The information presented in this page as well as in our paper is merely for research.<br>
+<span style="color: red"><b>Do NOT use it for criminal purposes</b></span>.
 
 ## Proving the attacks
 
@@ -43,15 +42,15 @@ For ethical reasons, we did not test this second attack in practice.
 
 There exist other (practical) works out there that implement relay as well as other other NFC-related attacks on contactless payment systems. Some of them are:
 
-* [First contact](https://i.blackhat.com/eu-19/Wednesday/eu-19-Galloway-First-Contact-Vulnerabilities-In-Contactless-Payments-wp.pdf): Galloway and Yunusov presented at [Black Hat Europe 2019](https://www.blackhat.com/eu-19/) a PIN bypass on Visa cards very similar to ours. The main difference between their attack and ours is that their attack requires also a modification of a terminal-source data object (called the Transaction Qualifiers) before delivering it to the card.
-
-* [NFCGate](https://github.com/nfcgate): implements relay, clone cards, and more. It requires root privileges and [Xposed](https://repo.xposed.info/) framework in at least one of the devices.
-
+* [NFCGate](https://github.com/nfcgate): an Android app meant to capture, analyze, or modify NFC traffic. A usage of the app will be presented at [WOOT'20](https://www.usenix.org/conference/woot20/presentation/klee). The app requires root privileges and [Xposed](https://repo.xposed.info/) framework.
+* [First contact](https://i.blackhat.com/eu-19/Wednesday/eu-19-Galloway-First-Contact-Vulnerabilities-In-Contactless-Payments-wp.pdf): presented at [Black Hat Europe 2019](https://www.blackhat.com/eu-19/), implements a PIN bypass on Visa cards very similar to ours. The main difference between their attack and ours is that their attack requires also a modification of a terminal-source data object (called the Terminal Transaction Qualifiers) before delivering it to the card.
+* [Man-in-the-NFC](https://www.slideshare.net/codeblue_jp/man-in-the-nfc-by-haoqi-shan-and-qing-yang): presented at [Defcon 25](https://www.defcon.org/html/defcon-25/dc-25-index.html), implements a relay attack that uses two Software Defined Radio (SDR) boards.
 * [EMVemulator](https://github.com/MatusKysel/EMVemulator): implements [Roland and Langer's attack](https://www.usenix.org/conference/woot13/workshop-program/presentation/roland) which combines pre-play and downgrade.
+* [NFC Hacking: the easy way](https://www.xinmeow.com/wp-content/uploads/2018/01/DEFCON-20-Lee-NFC-Hacking.pdf): presented at [Defcon 20](https://www.defcon.org/html/defcon-20/dc-20-index.html), uses [NFCProxy](https://sourceforge.net/p/nfcproxy/wiki/Home/) to implement relay using Android phones.
 
 ## Acknowledgments
 
-Parts of the code of our app were inspired by the apps listed above as well as [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test) (useful for the PKI stuff) and [SwipeYours](https://github.com/dimalinux/SwipeYours) (useful for the APDU stuff), so we thank their authors. We also thank [EFT Lab](https://www.eftlab.com/knowledge-base/145-emv-nfc-tags/) for making the EMV tags and their description available.
+Parts of the code of our app were inspired by the apps listed above as well as [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test) (useful for the PKI stuff) and [SwipeYours](https://github.com/dimalinux/SwipeYours) (useful for the APDU stuff), so we thank their authors. We also thank [EFT Lab](https://www.eftlab.com/knowledge-base/145-emv-nfc-tags/) for making EMV's TLV tags and description available.
 
 ## About us
 
