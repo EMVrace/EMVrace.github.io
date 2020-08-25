@@ -3,8 +3,7 @@ EMV is the international protocol standard for smartcard payment and runs used i
 
 Our work titled **The EMV Standard: Break, Fix, Verify**,  which will be presented at the [2021 IEEE Symposium on Security and Privacy (S&P)](https://www.ieee-security.org/TC/SP2021/index.html), presents a comprehensive model of EMV specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a PIN bypass attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above a local upper limit. This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their high-value transactions. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
 
-The information presented in this page as well as in our paper is merely for research.<br>
-<span style="color: red"><b>Do NOT use it for criminal purposes</b></span>.
+The information presented in this page as well as in our paper is merely for research.
 
 ## Proving the attacks
 
