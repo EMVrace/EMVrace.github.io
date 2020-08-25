@@ -1,9 +1,13 @@
 theme: jekyll-theme-cayman
 
-title: On EMV payments security
-description: David Basin, Ralf Sasse, and Jorge Toro | ETH Zürich
+title: The EMV Standard
+description: Break, Fix, Verify
 
 show_dowloads: false
+
+header_btn:
+  text: View Tamarin models
+  url: https://github.com/EMVrace/EMVerify
 
 github:
   is_project_page: false
