@@ -37,6 +37,7 @@ This attack, which is much less critical that the previous one, allows a crimina
 
 For ethical reasons, we did not test this second attack in practice.
 
+<!--
 ## Related work
 
 There exist other (practical) works out there that implement relay as well as other other NFC-related attacks on contactless payment systems. Some of them are:
@@ -51,9 +52,11 @@ There exist other (practical) works out there that implement relay as well as ot
 
 Parts of the code of our app were inspired by the apps listed above as well as [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test) (useful for the PKI stuff) and [SwipeYours](https://github.com/dimalinux/SwipeYours) (useful for the APDU stuff), so we thank their authors. We also thank [EFT Lab](https://www.eftlab.com/knowledge-base/145-emv-nfc-tags/) for making EMV's TLV tags and description available.
 
+-->
+
 ## About us
 
-We are researchers of the [Information Security Group](http://www.infsec.ethz.ch/), within the [Department of Computer Science](http://www.inf.ethz.ch/) at [ETH Zürich](https://www.ethz.ch/en). See our individual pages:
+We are researchers affiliated with the [Department of Computer Science](http://www.inf.ethz.ch/) at [ETH Zürich](https://www.ethz.ch/en). See our individual pages:
 * [Jorge Toro](https://jorgetp.github.io)
 * [David Basin](https://people.inf.ethz.ch/basin/)
 * [Ralf Sasse](https://people.inf.ethz.ch/rsasse/)
