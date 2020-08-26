@@ -2,17 +2,26 @@
 ---
 
 // Headers
-$header-heading-color: #fff !default;
 $header-bg-color: #006699 !default;
 $header-bg-color-secondary: #005580 !default;
 
 // Text
-$section-headings-color: DARKSLATEGRAY !default;
-/*//$body-text-color: #606c71 !default;
-$body-link-color: #1e6bb8 !default;
-$blockquote-text-color: #819198 !default;*/
+$section-headings-color: #606c71 !default;
 
 @import "{{ site.theme }}";
+
+/*h2 {
+  padding-bottom: .3rem;
+  border-bottom: solid 1px $hr-border-color;
+}
+
+.no-border {
+  border: none;
+}
+
+.no-padding {
+  border: none;
+}*/
 
 .page-header {
   @include large {
@@ -43,3 +52,4 @@ $blockquote-text-color: #819198 !default;*/
     font-size: 1.75rem;
   }
 }
+

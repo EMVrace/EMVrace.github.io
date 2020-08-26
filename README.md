@@ -1,9 +1,10 @@
 
-EMV is the international protocol standard for smartcard payment and runs used in over 9 billion cards worldwide, as of December 2019. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
+EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for smartcard payment and runs in over 9 billion cards worldwide, as of December 2019. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
-Our work titled **The EMV Standard: Break, Fix, Verify**,  which will be presented at the [2021 IEEE Symposium on Security and Privacy (S&P)](https://www.ieee-security.org/TC/SP2021/index.html), presents a comprehensive model of EMV specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a PIN bypass attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above a local upper limit. This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their high-value transactions. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
+We present a comprehensive model of EMV specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a PIN bypass attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above a local upper limit. This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their transactions, even if their amounts are above the local upper limit (e.g. 40 CHF in Switzerland). To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
 
-The information presented in this page as well as in our paper is merely for research.
+This work will be presented at the [42<sup>nd</sup> IEEE Symposium on
+Security and Privacy (S&P 2021)](https://www.ieee-security.org/TC/SP2021/index.html).
 
 ## Proving the attacks
 
@@ -11,11 +12,11 @@ To prove the practical application that the vulnerabilities we found have, we de
 
 ![Branching](relay_attack.png "Relay attack")
 
-The outermost devices are the real payment terminal (on the left) and the victim's contactless card (on the right). The phone near the payment terminal is the attacker's Card emulator and the phone near the victim's card is the attacker's POS emulator. The communication between the attacker's devices occur over WiFi with a TCP socket server-client channel. The rest of the communication occurs over NFC. 
+The outermost devices are the real payment terminal (on the left) and the victim's contactless card (on the right). The phone near the payment terminal is the attacker's Card emulator and the phone near the victim's card is the attacker's POS emulator. The communication between the attacker's devices occur over WiFi<!--with a TCP socket server-client channel. The rest of the communication occurs over NFC-->. 
 
 Our app does not require root privileges or any fancy hacks to Android and we have successfully used it on Pixel and Huawei devices.
 
-### Bypassing the PIN for Visa cards
+**Bypassing the PIN for Visa cards**
 
 This attack allows criminals to complete a purchase with a victim's contactless card without knowing the card's PIN. The attack consists simply in a modification of a card-sourced data object (called the Card Transaction Qualifiers), before delivering it to the terminal. Our modification tells the terminal that:
 1. Online PIN verification is not required, and
@@ -31,9 +32,9 @@ We also tested the attack in live terminals at actual stores. For all of our att
 
 As for Mastercard transactions, this attack does not apply because the card authenticates its messages related to cardholder verification, so tampering with those messages will result in a declined transaction.
 
-### Making the terminal accept fake offline transactions
+**Making the terminal accept fake offline transactions**
 
-This attack, which is much less critical that the previous one, allows a criminal to use their own card to complete a low-amount, offline transaction, while not being actually charged. To carry out this attack, the man-in-the-middle modifies the card-produced Transaction Cryptogram (TC). The terminal cannot detect this modification; only the bank can, yet after the consumer/criminal is long gone with the goods.
+This attack is much less critical that the PIN bypass attack. It allows a criminal to use their own card to complete a low-amount, offline transaction, while not being actually charged. To carry out this attack, the man-in-the-middle modifies the card-produced Transaction Cryptogram (TC). The terminal cannot detect this modification; only the bank can, yet after the consumer/criminal is long gone with the goods.
 
 For ethical reasons, we did not test this second attack in practice.
 
@@ -47,16 +48,15 @@ There exist other (practical) works out there that implement relay as well as ot
 * [Man-in-the-NFC](https://www.slideshare.net/codeblue_jp/man-in-the-nfc-by-haoqi-shan-and-qing-yang): presented at [Defcon 25](https://www.defcon.org/html/defcon-25/dc-25-index.html), implements a relay attack that uses two Software Defined Radio (SDR) boards.
 * [EMVemulator](https://github.com/MatusKysel/EMVemulator): implements [Roland and Langer's attack](https://www.usenix.org/conference/woot13/workshop-program/presentation/roland) which combines pre-play and downgrade.
 * [NFC Hacking: the easy way](https://www.xinmeow.com/wp-content/uploads/2018/01/DEFCON-20-Lee-NFC-Hacking.pdf): presented at [Defcon 20](https://www.defcon.org/html/defcon-20/dc-20-index.html), uses [NFCProxy](https://sourceforge.net/p/nfcproxy/wiki/Home/) to implement relay using Android phones.
+-->
 
 ## Acknowledgments
 
-Parts of the code of our app were inspired by the apps listed above as well as [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test) (useful for the PKI stuff) and [SwipeYours](https://github.com/dimalinux/SwipeYours) (useful for the APDU stuff), so we thank their authors. We also thank [EFT Lab](https://www.eftlab.com/knowledge-base/145-emv-nfc-tags/) for making EMV's TLV tags and description available.
-
--->
+Parts of the code of our app were inspired by the apps [EMVemulator](https://github.com/MatusKysel/EMVemulator), [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test), and [SwipeYours](https://github.com/dimalinux/SwipeYours), so we thank their authors. We also thank [EFT Lab](https://www.eftlab.com/knowledge-base/145-emv-nfc-tags/) for making EMV's TLV tags and description available.
 
 ## About us
 
-We are researchers affiliated with the [Department of Computer Science](http://www.inf.ethz.ch/) at [ETH Zürich](https://www.ethz.ch/en). See our individual pages:
+We are researchers with the [Department of Computer Science](http://www.inf.ethz.ch/) at [ETH Zürich](https://www.ethz.ch/en). See our individual pages:
 * [Jorge Toro](https://jorgetp.github.io)
 * [David Basin](https://people.inf.ethz.ch/basin/)
 * [Ralf Sasse](https://people.inf.ethz.ch/rsasse/)

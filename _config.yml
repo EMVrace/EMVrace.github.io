@@ -1,13 +1,11 @@
 theme: jekyll-theme-cayman
 
-title: The EMV Standard
-description: Break, Fix, Verify
+title: "The EMV Standard: Break, Fix, Verify"
+description: Jorge Toro, David Basin, and Ralf Sasse | ETH Zürich
 
 show_dowloads: false
 
-header_btn:
-  text: View Tamarin models
-  url: https://github.com/EMVrace/EMVerify
-
-github:
-  is_project_page: false
+header_btns:
+  - <a href="https://arxiv.org/pdf/2006.08249" class="btn"><i class="fa fa-file-pdf-o"></i> Preprint on arxiv</a>
+  - <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Tamarin models</a>
+  - <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Demo video</a>
