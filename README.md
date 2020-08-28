@@ -1,5 +1,5 @@
 
-EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for smartcard payment and runs in over 9 billion cards worldwide, as of December 2019. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
+EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for smartcard payment. As of December 2019, EMV is used in over 9 billion debit and credit cards worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
 We present a comprehensive model of EMV, specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a **PIN bypass** attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above a local PIN-less upper limit (e.g., currently 80 CHF in Switzerland). This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their transaction, even if the amount is above the mentioned limit. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
 
@@ -36,7 +36,7 @@ The EMV contactless protocols (known as *kernels* in EMV's terminology) are Mast
 
 This attack allows a criminal to use their own card to complete a low-value and offline transaction, while not being actually charged. The attack consists in a modification of a card-produced data --the *Transaction Cryptogram*-- before delivering it to the terminal. The terminal cannot detect this modification; only the bank can, yet after the consumer/criminal is long gone with the goods.
 
-This attack applies to both Visa and Mastercard transactions. In the case of the latter, it only applies to transactions with cards that do not have a PKI certificate. For ethical reasons, we did not test this second attack in practice.
+This attack applies to both Visa and Mastercard transactions. In the case of the latter, it only applies to transactions with (likely old) cards that do not support the CDA authentication method (see [EMV Book 2 v4.3](https://www.emvco.com/wp-content/uploads/documents/EMV_v4.3_Book_2_Security_and_Key_Management_20120607061923900.pdf)). For ethical reasons, we did not test this second attack in practice.
 
 <!--
 ## Related work
