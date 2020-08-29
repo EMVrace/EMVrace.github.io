@@ -30,7 +30,7 @@ This attack allows criminals to complete a purchase over the PIN-less limit with
 
 We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards; no merchant or any other entities were defrauded.
 
-There are six EMV contactless protocols and each of them corresponds to one of the card brands Mastercard, Visa, American Express, JCB, Discover, and UnionPay. Our PIN bypass attack applies to the Visa protocols and (possibly) the Discover and the UnionPay ones, but we have not tested these two in practice.
+There are six EMV contactless protocols and each of them corresponds to one of the card brands Mastercard, Visa, American Express, JCB, Discover, and UnionPay. Our PIN bypass attack applies to the Visa protocol and (possibly) the Discover and the UnionPay ones, but we have not tested these two in practice.
 
 <!--The EMV contactless protocols (known as *kernels* in EMV's terminology) are Mastercard, Visa, American Express, JCB, Discover, and UnionPay. Out of these, and based on their specification at [EMVCo](https://www.emvco.com/), our PIN bypass attack applies to the Visa, Discover, and UnionPay protocols, but we have not tested the last two in practice.-->
 
@@ -39,6 +39,10 @@ There are six EMV contactless protocols and each of them corresponds to one of t
 This attack allows a criminal to use their own card to complete a low-value and offline transaction, while not being actually charged. The attack consists in a modification of a card-produced data --the *Transaction Cryptogram*-- before delivering it to the terminal. The terminal cannot detect this modification; only the bank can, yet after the consumer/criminal is long gone with the goods.
 
 This attack applies to both Visa and Mastercard transactions. In the case of the latter, it only applies to transactions with (likely old) cards that do not support the CDA authentication method (see [EMV Book 2 v4.3](https://www.emvco.com/wp-content/uploads/documents/EMV_v4.3_Book_2_Security_and_Key_Management_20120607061923900.pdf)). For ethical reasons, we did not test this second attack in practice.
+
+## FAQ
+
+Coming soon...
 
 <!--
 ## Related work
