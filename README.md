@@ -30,7 +30,9 @@ This attack allows criminals to complete a purchase over the PIN-less limit with
 
 We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards; no merchant or any other entities were defrauded.
 
-The EMV contactless protocols (known as *kernels* in EMV's terminology) are Mastercard, Visa, American Express, JCB, Discover, and UnionPay. Out of these, and based on their specification at [EMVCo](https://www.emvco.com/), our PIN bypass attack applies to the Visa, Discover, and UnionPay protocols, but we have not tested the last two in practice.
+There are six EMV contactless protocols and each of them corresponds to one of the card brands Mastercard, Visa, American Express, JCB, Discover, and UnionPay. Our PIN bypass attack applies to the Visa protocols and (possibly) the Discover and the UnionPay ones, but we have not tested these two in practice.
+
+<!--The EMV contactless protocols (known as *kernels* in EMV's terminology) are Mastercard, Visa, American Express, JCB, Discover, and UnionPay. Out of these, and based on their specification at [EMVCo](https://www.emvco.com/), our PIN bypass attack applies to the Visa, Discover, and UnionPay protocols, but we have not tested the last two in practice.-->
 
 ### Making the terminal accept fake offline transactions
 
