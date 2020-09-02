@@ -34,3 +34,15 @@
   }
 }
 
+details > summary {
+  color: $body-link-color;
+  margin-bottom: .5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+details > p {
+  margin-top: .5rem;
+  //margin-bottom: .5rem;
+  margin-left: 20px;
+}
