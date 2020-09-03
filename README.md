@@ -2,7 +2,7 @@ EMV, named after its founders Europay, Mastercard, and Visa, is the internationa
 
 We present a comprehensive model of EMV, specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a **PIN bypass** attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above a local PIN-less upper limit (e.g., currently 80 CHF in Switzerland). This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their transaction, even if the amount is above the mentioned limit. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
 
-This work will be presented at the [42<sup>nd</sup> IEEE Symposium on
+This work passed peer-review successfully and will be presented at the [42<sup>nd</sup> IEEE Symposium on
 Security and Privacy (S&P 2021)](https://www.ieee-security.org/TC/SP2021/index.html).
 
 ## Demonstrating the attacks
@@ -41,16 +41,11 @@ This attack applies to both Visa and Mastercard transactions. In the case of the
 
 <details>
 <summary>What cards are affected by the PIN bypass attack?</summary>
-<p>Modern contactless cards that run the Visa protocol, including Visa Credit, Visa Debit, Visa Electron, and V Pay cards.</p>
+<p>Modern contactless cards that run the Visa protocol, including Visa Credit, Visa Debit, Visa Electron, and V Pay cards. Discover and UnionPay might be affected too.</p>
 </details>
 
 <details>
-<summary>What cards are affected by the offline attack?</summary>
-<p>We have not tested this attack in practice and thus we cannot say for certain. From our analysis, Visa and old Mastercard cards seem to be exposed.</p>
-</details>
-
-<details>
-<summary>Why is it possible to bypass the PIN?</summary>
+<summary>Why is it possible to bypass the PIN in Visa cards?</summary>
 <p>The card does not authenticate the data object that defines the cardholder verification method to be used, thus modifying this object is possible without detection.</p>
 </details>
 
@@ -59,7 +54,50 @@ This attack applies to both Visa and Mastercard transactions. In the case of the
 <p>No. In a Mastercard transaction, the card authenticates the data object that defines the cardholder verification method to be used, thus no modification of this object is possible without detection.</p>
 </details>
 
-Further FAQs will come soon...
+<details>
+<summary>What cards are affected by the offline attack?</summary>
+<p>We have not tested this attack in practice and thus we don't know for certain. Based on our analysis, Visa and old Mastercard cards seem to be exposed.</p>
+</details>
+
+<details>
+<summary>What role did Tamarin play in this research?</summary>
+<p>Tamarin is a state-of-the-art verification tool. With it, we analysed the full execution flow of an EMV transaction with unboundedly many executions occurring simultaneously in an adversarial environment, where all messages exchanged between the terminal and the card can be modified/blocked/injected. The outcome of this analysis were the two novel attacks we focus on in the paper, as well as the rediscovery of existing ones. We also used Tamarin to design and verify (under all adversarial conditions explained above) defenses to all attacks.</p>
+</details>
+
+<details>
+<summary>There have been many attacks on EMV before: what makes this different?</summary>
+<p>Practical attacks reported before are either conspicuous and thus hard to exploit in practice, or do not seem lucrative for criminals. Our attack, which allows for high-value fraudulent transactions, looks just like a commercial payment app such as Apple/Google Pay, thus evading detection.</p>
+</details>
+
+<details>
+<summary>What went wrong?  How can such problems be avoided in the future?</summary>
+<p>Critical data sent by the card during a transaction are not authenticated. Complex systems such as EMV must be analysed by formal tools, like model checkers. Humans cannot deal with the volume of execution steps and branches a complex system has, and so security breaches are often missed.</p>
+</details>
+
+<details>
+<summary>Should we protect our cards in a “metal wallet” to prevent them being read remotely?</summary>
+<p>This might help.  Although you still have problems if they are lost or stolen.</p>
+</details>
+
+<details>
+<summary>What actions should I as a citizen take now to protect myself?</summary>
+<p>Protection measures recommended by banks apply. Block your card immediately upon realization it is lost or stolen. Check your bank statement regularly, and immediately report to your bank whenever you see an unrecognized transaction. Additionally, we recommend that, whenever you carry a Visa card, make sure nobody is holding a device near it against your will. Also, be aware of your back pocket in queues.</p>
+</details>
+
+<details>
+<summary>Do you have follow up plans?</summary>
+<p>We plan to further refine our formal model in order to consider even more powerful adversaries. Also, we are open to working with Visa and EMV in implementing the fixes we have proposed as well as in verifying future versions of the standard.</p>
+</details>
+
+<details>
+<summary>Where do I find the Android app?</summary>
+<p>Nowhere. We do not make it available.</p>
+</details>
+
+<!--<details>
+<summary>How do I cite this work?</summary>
+<p>This work has been accepted by a peer-review process for publication at the <i>42<sup>nd</sup> IEEE Symposium on Security and Privacy (S&P 2021)</i>. Thus the citation must refer to this symposium.</p>
+</details>-->
 
 ## Acknowledgments
 
