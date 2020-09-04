@@ -1,4 +1,4 @@
-EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for smartcard payment. As of December 2019, EMV is used in over 9 billion debit and credit cards worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
+EMV (named after its founders Europay, Mastercard, and Visa) is the international protocol standard for smartcard payment. As of December 2019, EMV is used in over 9 billion debit and credit cards worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
 We present a comprehensive model of EMV, specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a **PIN bypass** attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above a local PIN-less upper limit (e.g., currently 80 CHF in Switzerland). This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their transaction, even if the amount is above the mentioned limit. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
 
@@ -7,19 +7,19 @@ Security and Privacy (S&P 2021)](https://www.ieee-security.org/TC/SP2021/index.h
 
 ## Demonstrating the attacks
 
-To demonstrate how easy it is to exploit the vulnerabilities we found, we developed a proof-of-concept Android application. Our app implements [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) on top of a [relay attack](https://en.wikipedia.org/wiki/Relay_attack) architecture, displayed below.
+To demonstrate how easy it is to exploit the vulnerabilities we found, we developed a proof-of-concept Android application. Our app implements [man-in-the-middle (MITM)](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks on top of a [relay attack](https://en.wikipedia.org/wiki/Relay_attack) architecture, displayed below. The MITM attacks modify the terminal's commands and the card's responses before delivering them to the corresponding recipient.
 
 ![Image](relay_attack.png "Relay attack")
 
-The outermost devices are the real payment terminal (on the left) and the victim's contactless card (on the right). The phone near the payment terminal is the attacker's Card emulator device and the phone near the victim's card is the attacker's POS emulator device. The attacker's devices communicate with each other over WiFi, and with the terminal and the card over NFC.
+The outermost devices are the payment terminal (on the left) and the victim's contactless card (on the right). The phone near the payment terminal is the attacker's Card emulator device and the phone near the victim's card is the attacker's POS emulator device. The attacker's devices communicate with each other over WiFi, and with the terminal and the card over NFC.
 
-Our app does not require root privileges or any fancy hacks to Android and we have successfully used it on Pixel and Huawei devices.
+Our app does not require root privileges or any hacks to Android and we have successfully used it on Google Pixel and Huawei devices.
 
-### Bypassing the PIN for Visa cards
+### Bypassing the PIN
 
-This attack allows criminals to complete a purchase over the PIN-less limit with a victim's contactless card without knowing the card's PIN. The attack consists in a modification of a card-sourced data object --the *Card Transaction Qualifiers*-- before delivering it to the terminal. The modification instructs the terminal that:
-1. PIN verification is not required, and
-1. the cardholder was verified on the consumer's device (e.g., a smartphone).
+This attack allows criminals to complete a purchase over the PIN-less limit with a victim's Visa contactless card without knowing the card's PIN. The attack consists in a modification of a card-sourced data object --the Card Transaction Qualifiers-- before delivering it to the terminal. The modification instructs the terminal that:
+* PIN verification is not required, and
+* the cardholder was verified on the consumer's device (e.g., a smartphone).
 
 Technical details can be found in our paper and a video demonstration of the attack for a **200 CHF** transaction is given below.
 
@@ -33,9 +33,9 @@ There are six EMV contactless protocols and each of them corresponds to one of t
 
 ### Making the terminal accept fake offline transactions
 
-This attack allows a criminal to use their own card to complete a low-value and offline transaction, while not being actually charged. The attack consists in a modification of a card-produced data --the *Transaction Cryptogram*-- before delivering it to the terminal. The terminal cannot detect this modification; only the bank can, yet after the consumer/criminal is long gone with the goods.
+This attack allows a criminal to use their own card to complete a low-value and offline transaction, while not being actually charged. The attack consists in a modification of a card-produced data object --the Application Cryptogram-- before delivering it to the terminal. The terminal cannot detect this modification; only the bank can, yet after the consumer/criminal is long gone with the goods.
 
-This attack applies to both Visa and Mastercard transactions. In the case of the latter, it only applies to transactions with (likely old) cards that do not support the CDA authentication method (see [EMV Book 2 v4.3](https://www.emvco.com/wp-content/uploads/documents/EMV_v4.3_Book_2_Security_and_Key_Management_20120607061923900.pdf)). For ethical reasons, we did not test this second attack in practice.
+This attack applies to both the Visa and Mastercard protocols. In the case of the latter, it only applies to transactions with (likely old) cards that do not support the CDA authentication method. For ethical reasons, we did not test this second attack in practice.
 
 ## FAQ
 
@@ -97,11 +97,11 @@ This attack applies to both Visa and Mastercard transactions. In the case of the
 <!--<details>
 <summary>How do I cite this work?</summary>
 <p>This work has been accepted by a peer-review process for publication at the <i>42<sup>nd</sup> IEEE Symposium on Security and Privacy (S&P 2021)</i>. Thus the citation must refer to this symposium.</p>
-</details>-->
+</details>
 
 ## Acknowledgments
 
-Parts of the code of our app were inspired by the apps [EMVemulator](https://github.com/MatusKysel/EMVemulator), [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test), and [SwipeYours](https://github.com/dimalinux/SwipeYours). We thank their authors as well as [EFT Lab](https://www.eftlab.com/knowledge-base/145-emv-nfc-tags/) for making EMV's TLV tags and description available.
+Parts of the code of our app were inspired by the apps [EMVemulator](https://github.com/MatusKysel/EMVemulator), [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test), and [SwipeYours](https://github.com/dimalinux/SwipeYours). We thank their authors as well as [EFT Lab](https://www.eftlab.com/knowledge-base/145-emv-nfc-tags/) for making EMV's TLV tags and description available.-->
 
 ## About us
 
