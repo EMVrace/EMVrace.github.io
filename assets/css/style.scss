@@ -3,14 +3,18 @@
 
 @import "{{ site.theme }}";
 
+html, body {
+  color: #606060;
+}
+
 .page-header {
 
   @include large {
-    padding: 3rem 2rem;
+    padding: 4rem 5rem;
   }
 
   @include medium {
-    padding: 2rem 2rem;
+    padding: 2rem 3rem;
   }
 
   @include small {
@@ -22,16 +26,16 @@
 .project-name {
 
   @include large {
-    font-size: 2.15rem;
+    font-size: 2.85rem;
   }
 
-  @include medium {
+  /*@include medium {
     font-size: 1.95rem;
   }
 
   @include small {
     font-size: 1.75rem;
-  }
+  }*/
 }
 
 details > summary {
@@ -44,5 +48,5 @@ details > summary {
 details > p {
   margin-top: .5rem;
   //margin-bottom: .5rem;
-  margin-left: 20px;
+  //margin-left: 20px;
 }
