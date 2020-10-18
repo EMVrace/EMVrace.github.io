@@ -1,13 +1,11 @@
 ---
 ---
+$body-text-color: #606060 !default;
+//$blockquote-text-color: #808080 !default;
 
 @import "{{ site.theme }}";
 
-html, body {
-  color: #606060;
-}
-
-.page-header {
+/*.page-header {
 
   @include large {
     padding: 4rem 5rem;
@@ -20,8 +18,7 @@ html, body {
   @include small {
     padding: 2rem 1rem;
   }
-}
-
+}*/
 
 .project-name {
 

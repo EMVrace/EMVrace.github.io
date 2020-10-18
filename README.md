@@ -1,9 +1,12 @@
-EMV (named after its founders Europay, Mastercard, and Visa) is the international protocol standard for smartcard payment. As of December 2019, EMV is used in over 9 billion debit and credit cards worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
+By [David Basin](https://people.inf.ethz.ch/basin/), [Ralf Sasse](https://people.inf.ethz.ch/rsasse/), and [Jorge Toro](https://jorgetp.github.io/)<br>
+[Department of Computer Science](http://www.inf.ethz.ch/), [ETH Zurich](https://www.ethz.ch/en)
 
-We present a comprehensive model of EMV, specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a **PIN bypass** attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above the local PIN-less upper limit (e.g., currently 80 CHF in Switzerland). This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their transaction, even if the amount is above the mentioned limit. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
+EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for smartcard payment. As of December 2019, EMV is being used in over 9 billion debit and credit cards worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
-This work passed peer-review successfully and will be presented at the [42<sup>nd</sup> IEEE Symposium on
-Security and Privacy (S&P 2021)](https://www.ieee-security.org/TC/SP2021/index.html). Watch a talk preview on [<i class="fa fa-youtube-play"></i> YouTube](https://youtu.be/HrBgPIiqqf8).
+We present a comprehensive model of EMV, specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a **PIN bypass** attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above the local PIN-less upper limit (e.g., currently 80 CHF in Switzerland). This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their purchase, even if the amount is above the mentioned limit. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
+
+This work passed peer-review successfully and will be presented at the [*42nd IEEE Symposium on
+Security and Privacy (S&P 2021)*](https://www.ieee-security.org/TC/SP2021/index.html). Watch a talk preview on [<i class="fa fa-youtube-play"></i> YouTube](https://youtu.be/HrBgPIiqqf8).
 
 ## Demonstrating the attacks
 
@@ -102,10 +105,3 @@ This attack applies to both the Visa and Mastercard protocols. In the case of th
 ## Acknowledgments
 
 Parts of the code of our app were inspired by the apps [EMVemulator](https://github.com/MatusKysel/EMVemulator), [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test), and [SwipeYours](https://github.com/dimalinux/SwipeYours). We thank their authors. We also thank [EFT Lab](https://www.eftlab.com/) for making the lists of EMV tags and CA public keys available.-->
-
-## About us
-
-We are security researchers with the [Department of Computer Science](http://www.inf.ethz.ch/) at [ETH Zürich](https://www.ethz.ch/en). See our individual pages:
-* [Prof. Dr. David Basin](https://people.inf.ethz.ch/basin/)
-* [Dr. Ralf Sasse](https://people.inf.ethz.ch/rsasse/)
-* [Dr. Jorge Toro](https://jorgetp.github.io)
