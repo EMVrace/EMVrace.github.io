@@ -3,6 +3,8 @@ theme: jekyll-theme-cayman
 title: "The EMV Standard: Break, Fix, Verify"
 #description: David Basin, Ralf Sasse, and Jorge Toro | ETH Zürich
 
+author_block: 'By <a href="https://people.inf.ethz.ch/basin/">David Basin</a>, <a href="https://people.inf.ethz.ch/rsasse/">Ralf Sasse</a>, and <a href="https://jorgetp.github.io/">Jorge Toro</a><br><a href="http://www.inf.ethz.ch/">Department of Computer Science</a>, <a href="https://www.ethz.ch/en">ETH Zurich</a>'
+
 show_dowloads: false
 
 github:

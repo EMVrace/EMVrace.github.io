@@ -50,6 +50,12 @@
     </header>
 
     <main id="content" class="main-content" role="main">
+      {% if site.author_block %}
+        <div class="author-block">
+          {{ site.author_block }}
+        </div>
+      {% endif %}
+
       {{ content }}
 
       <footer class="site-footer">
