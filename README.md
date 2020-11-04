@@ -2,8 +2,8 @@ EMV, named after its founders Europay, Mastercard, and Visa, is the internationa
 
 We present a comprehensive model of EMV, specified in the [Tamarin](https://tamarin-prover.github.io/) verification tool. Using our model, we automatically identified several authentication flaws. One of the encountered flaws, present in the Visa contactless protocol, leads to a **PIN bypass** attack for transactions that are presumably protected by cardholder verification, typically those whose amount is above the local PIN-less upper limit (e.g., currently 80 CHF in Switzerland). This means that your PIN won't prevent criminals from using your Visa contactless card to pay for their purchase, even if the amount is above the mentioned limit. To carry out the attack, the criminals must have access to your card, either by stealing it/finding it if lost, or by holding an NFC-enabled phone near it.
 
-This work passed peer-review successfully and will be presented at the [*42nd IEEE Symposium on
-Security and Privacy (S&P 2021)*](https://www.ieee-security.org/TC/SP2021/index.html). Watch a talk preview on [<i class="fa fa-youtube-play"></i> YouTube](https://youtu.be/HrBgPIiqqf8).
+This work has been accepted for, and will be presented at, the [42nd IEEE Symposium on
+Security and Privacy (S&P 2021)](https://www.ieee-security.org/TC/SP2021/index.html). A talk preview is available on [<i class="fa fa-youtube-play"></i> YouTube](https://youtu.be/HrBgPIiqqf8).
 
 ## Demonstrating the attacks
 
@@ -102,3 +102,13 @@ This attack applies to both the Visa and Mastercard protocols. In the case of th
 ## Acknowledgments
 
 Parts of the code of our app were inspired by the apps [EMVemulator](https://github.com/MatusKysel/EMVemulator), [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test), and [SwipeYours](https://github.com/dimalinux/SwipeYours). We thank their authors. We also thank [EFT Lab](https://www.eftlab.com/) for making the lists of EMV tags and CA public keys available.-->
+
+## Team
+
+Prof. Dr. [David Basin](https://www.inf.ethz.ch/personal/basin/)<br>
+Dr. [Ralf Sasse](https://people.inf.ethz.ch/rsasse/)<br>
+Dr. [Jorge Toro](https://jorgetp.github.io/)
+
+[Institute of Information Security](https://informationsecurity.ethz.ch/)<br>
+[Department of Computer Science](https://inf.ethz.ch/)<br>
+[ETH Zurich](https://www.ethz.ch/en)<br>

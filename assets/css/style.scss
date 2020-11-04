@@ -19,8 +19,11 @@ $body-text-color: #606060 !default;
     padding: 2rem 1rem;
   }*/
   
-  a.author {
+  .white {
     color: white;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -50,15 +53,4 @@ details > p {
   margin-top: .5rem;
   //margin-bottom: .5rem;
   //margin-left: 20px;
-}
-
-div.author-block {
-  //font-size: 16px;
-  //padding: 10px;
-  //background-color: WhiteSmoke;
-  //border-radius: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  display: inline-block;
-  border-bottom: 1.5px solid $hr-border-color;
 }

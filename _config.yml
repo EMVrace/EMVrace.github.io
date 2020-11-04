@@ -1,9 +1,7 @@
 theme: jekyll-theme-cayman
 
-title: "The EMV Standard: Break, Fix, Verify"
-#description: David Basin, Ralf Sasse, and Jorge Toro | ETH Zürich
-
-author_block: 'By <a href="https://people.inf.ethz.ch/basin/">David Basin</a>, <a href="https://people.inf.ethz.ch/rsasse/">Ralf Sasse</a>, and <a href="https://jorgetp.github.io/">Jorge Toro</a><br><a href="http://www.inf.ethz.ch/">Department of Computer Science</a>, <a href="https://www.ethz.ch/en">ETH Zurich</a>'
+title: 'The EMV Standard: Break, Fix, Verify'
+description: 'David Basin, Ralf Sasse, and Jorge Toro'
 
 show_dowloads: false
 
@@ -13,6 +11,6 @@ github:
   owner_url: https://jorgetp.github.io
 
 header_btns:
-  - <a href="https://arxiv.org/pdf/2006.08249" class="btn"><i class="fa fa-file-pdf-o"></i> Preprint on arxiv</a>
-  - <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Tamarin models</a>
-  - <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Demo video</a>
+  - <a href="https://arxiv.org/pdf/2006.08249" class="btn"><i class="fa fa-file-pdf-o"></i> Read full paper</a>
+  - <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Get Tamarin models</a>
+  - <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Watch demo video</a>
