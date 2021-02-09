@@ -54,3 +54,14 @@ details > p {
   //margin-bottom: .5rem;
   //margin-left: 20px;
 }
+
+.box {
+  color: $code-text-color;
+  border: solid 1px $border-color;
+  border-radius: 0.3rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 2px 4px;
+  background-color: $code-bg-color;
+  border-radius: 0.3rem;
+}

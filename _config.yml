@@ -7,10 +7,8 @@ show_dowloads: false
 
 github:
   is_project_page: false
-  owner_name: Jorge Toro
-  owner_url: https://jorgetp.github.io
 
 header_btns:
-  - <a href="https://arxiv.org/pdf/2006.08249" class="btn"><i class="fa fa-file-pdf-o"></i> Read full paper</a>
-  - <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Get Tamarin models</a>
-  - <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Watch demo video</a>
+  - <a href="https://arxiv.org/pdf/2006.08249" class="btn"><i class="fa fa-file-pdf-o"></i> Full paper</a>
+  - <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Tamarin models</a>
+  - <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Attack demo</a>
