@@ -14,13 +14,13 @@ To demonstrate the feasibility of the attacks, we developed a proof-of-concept A
 
 The outermost devices are the payment terminal (on the left) and the victim's contactless card (on the right). The phone near the payment terminal is the attacker's card emulator device and the phone near the victim's card is the attacker's POS emulator device. The attacker's devices communicate with each other over WiFi, and with the terminal and the card over NFC.
 
-For the attacks to work, clearly the criminals must have access to the victim's card, either by stealing it, finding it if lost, or by holding the POS emulator near it if still in the victim's possession. The attacks work by modifying the terminal's commands and the card's responses before delivering them to the corresponding recipient.
+For the attacks to work, the criminals must have access to the victim's card, either by stealing it, finding it if lost, or by holding the POS emulator near it if still in the victim's possession. The attacks work by modifying the terminal's commands and the card's responses before delivering them to the corresponding recipient.
 
 Our app does not require root privileges or any hacks to Android and we have successfully used it on Google Pixel and Huawei devices.
 
 ### Attack on Visa
 
-The attack consists in a modification of Card Transaction Qualifiers (CTQ), a card-sourced data object before delivering it to the terminal. The modification instructs the terminal that:
+The attack consists in a modification of the Card Transaction Qualifiers (CTQ, a card-sourced data object), before delivering it to the terminal. The modification instructs the terminal that:
 * PIN verification is not required, and
 * the cardholder was verified on the consumer's device (e.g., a smartphone).
 
