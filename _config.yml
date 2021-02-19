@@ -9,6 +9,7 @@ github:
   is_project_page: false
 
 header_btns:
-  - <a href="https://arxiv.org/pdf/2006.08249" class="btn"><i class="fa fa-file-pdf-o"></i> Full paper</a>
-  - <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Tamarin models</a>
-  - <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Attack demo</a>
+  - <a href="https://arxiv.org/pdf/2006.08249.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> PIN bypass for Visa</a>
+  - <a href="https://jorgetp.github.io/assets/files/papers/USENIX21.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> Brand mixup attack</a>
+  #- <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Get Tamarin models</a>
+  #- <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Watch demo video</a>
