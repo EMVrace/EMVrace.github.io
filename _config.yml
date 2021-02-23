@@ -7,6 +7,8 @@ show_dowloads: false
 
 github:
   is_project_page: false
+  owner_name: Jorge Toro
+  owner_url: https://jorgetp.github.io/
 
 header_btns:
   - <a href="https://arxiv.org/pdf/2006.08249.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> PIN bypass for Visa</a>

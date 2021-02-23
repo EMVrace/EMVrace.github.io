@@ -1,10 +1,10 @@
-EMV, named after its founders **E**uropay, **M**astercard, and **V**isa, is the international protocol standard for in-store smartcard payment. In December 2019, EMV was reported to run in over 9 billion credit and debit cards worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
+EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2019, EMV was reported to run in over 9 billion credit and debit cards worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
-We have specified a comprehensive model [[1](https://github.com/EMVrace/EMVerify), extended in [2](https://github.com/EMVrace/EMVerify-PAN-routing)] of the EMV protocol, using the state-of-the-art model checker [Tamarin](https://tamarin-prover.github.io/). Using our models, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
+We have specified a comprehensive [model](https://github.com/EMVrace/EMVerify) (extended [here](https://github.com/EMVrace/EMVerify-PAN-routing)) of the EMV protocol, using the state-of-the-art model checker [Tamarin](https://tamarin-prover.github.io/). Using our models, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
 
-[**The attack on Visa**](#attack-on-visa) allows criminals to complete a purchase over the PIN-less limit with a victim's Visa contactless card without knowing the card's PIN. In other words, *the PIN in your Visa card is useless* as it won't protect your card from being used for fraudulent, high-value purchases. Our findings have been covered by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html), [The Hacker News](https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html), [ZDNet](https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/), [Schweizer Radio und Fernsehen (SRF)](https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html), [heise](https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html), and more.
+[**The attack on Visa**](#attack-on-visa) allows criminals to complete a purchase over the PIN-less limit with a victim's Visa contactless card without knowing the card's PIN. In other words, *the PIN in your Visa card is useless* as it won't protect your card from being used for fraudulent, high-value purchases.
 
-[**The attack on Mastercard**](#attack-on-mastercard) allows criminals to trick the terminal into transacting with a victim's  Mastercard contactless card while believing it to be a Visa card. This is not just a mere *card brand mixup* but it has critical consequences. For example, criminals can use it in combination with the previous attack on Visa to also bypass the PIN for Mastercard cards. As a result of our successful disclosure process, Mastercard has since implemented and rolled out defense mechanisms at their network level, which we experimentally confirmed as effective against our attack. 
+[**The attack on Mastercard**](#attack-on-mastercard) allows criminals to trick a terminal into transacting with a victim's  Mastercard contactless card while believing it to be a Visa card. This *card brand mixup* has critical consequences since it can be used in combination with the PIN bypass for Visa to also bypass the PIN for Mastercard cards. As a result of our disclosure process, Mastercard has implemented defense mechanisms, which we experimentally confirmed as effective against the attack.
 
 ## Demonstrating the attacks
 
@@ -16,7 +16,7 @@ The outermost devices are the payment terminal (on the left) and the victim's co
 
 For the attacks to work, the criminals must have access to the victim's card, either by stealing it, finding it if lost, or by holding the POS emulator near it if still in the victim's possession. The attacks work by modifying the terminal's commands and the card's responses before delivering them to the corresponding recipient.
 
-Our app does not require root privileges or any hacks to Android and we have successfully used it on Google Pixel and Huawei devices.
+Our app does not require root privileges or any hacks to Android. We have successfully used it on Google Pixel and Huawei devices.
 
 ### Attack on Visa
 
@@ -30,7 +30,7 @@ We have successfully tested this attack with Visa Credit, Visa Debit, Visa Elect
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-This attack may also affect Discover and UnionPay cards. A full technical report on the attack is given in our paper:
+This attack may also affect Discover and UnionPay cards. Our findings have been covered by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html), [The Hacker News](https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html), [ZDNet](https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/), [Schweizer Radio und Fernsehen (SRF)](https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html), [heise](https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html), and a full technical report is given in our paper:
 
 <div class="box">
 <b>The EMV Standard: Break, Fix, Verify</b><br />
@@ -52,10 +52,10 @@ We have successfully tested this attack with four different cards, two Mastercar
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-This attack may also affect JCB and American Express cards. A full technical report on the attack is given in our paper:
+This attack may also affect JCB and American Express cards. Our research has been featured by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html), [The Hacker News](https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html), and a full technical report is given in our paper:
 
 <div class="box">
-<b>Card Brand Mixup Attack: Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
+<b>Card Brand Mixup Attack:</b><br /><b>Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
 David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
 <em>30th USENIX Security Symposium, 2021</em>
 </div>
