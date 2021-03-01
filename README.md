@@ -1,4 +1,4 @@
-EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2019, EMV was reported to run in over 9 billion credit and debit cards worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
+EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. There are 9.89 billion EMV cards in circulation worldwide, according to EMVCo's [Annual Report 2020](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf). Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
 We have specified a comprehensive [model](https://github.com/EMVrace/EMVerify) (extended [here](https://github.com/EMVrace/EMVerify-PAN-routing)) of the EMV protocol, using the state-of-the-art model checker [Tamarin](https://tamarin-prover.github.io/). Using our models, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
 
@@ -26,15 +26,11 @@ The attack consists in a modification of the Card Transaction Qualifiers (CTQ, a
 
 We have successfully tested this attack with Visa Credit, Visa Debit, Visa Electron, and V Pay cards. A video demonstration for a **200 CHF** transaction is given below. <!--We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards. No merchant or any other entities were defrauded.-->
 
-<!--<div style=" margin: auto; width: 560px;">
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>-->
-
 <div class="demo">
 <iframe src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-This attack may also affect Discover and UnionPay cards. Our findings have been covered by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html), [The Hacker News](https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html), [ZDNet](https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/), [Schweizer Radio und Fernsehen (SRF)](https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html), [heise](https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html), and a full technical report is given in our paper:
+This attack may also affect Discover and UnionPay cards. Our findings have been covered by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html), [The Hacker News](https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html), [ZDNet](https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/), [Schweizer Radio und Fernsehen (SRF)](https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html#1130993), [heise](https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html), and a full technical report is given in our paper:
 
 <div class="box">
 <b>The EMV Standard: Break, Fix, Verify</b><br />
@@ -50,13 +46,13 @@ For this attack to work, the terminal's authorization request must reach the car
 * the terminal does not decline offline even if the card number (PAN) and the AIDs indicate different card brands, and
 * the merchant's acquirer routes the transaction authorization request to a payment network that can process Mastercard cards.
 
-We have successfully tested this attack with four different cards, two Mastercard credit and two Maestro debit cards. A video demonstration for a **400 CHF** transaction with a Maestro debit card is given below.
+We have successfully tested this attack with Mastercard credit and Maestro debit cards. A video demonstration for a **400 CHF** transaction is given below.
 
 <div class="demo">
 <iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-This attack may also affect JCB and American Express cards. Our research has been featured by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html), [The Hacker News](https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html), and a full technical report is given in our paper:
+This attack may also affect JCB and American Express cards. Our research has been featured by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html), [The Hacker News](https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729), and a full technical report is given in our paper:
 
 <div class="box">
 <b>Card Brand Mixup Attack:</b><br /><b>Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
