@@ -4,7 +4,7 @@ We have specified a comprehensive [model](https://github.com/EMVrace/EMVerify) (
 
 [**The attack on Visa**](#attack-on-visa) allows criminals to complete a purchase over the PIN-less limit with a victim's Visa contactless card without knowing the card's PIN. In other words, *the PIN in your Visa card is useless* as it won't protect your card from being used for fraudulent, high-value purchases.
 
-[**The attack on Mastercard**](#attack-on-mastercard) allows criminals to trick a terminal into transacting with a victim's  Mastercard contactless card while believing it to be a Visa card. This *card brand mixup* has critical consequences since it can be used in combination with the PIN bypass for Visa to also bypass the PIN for Mastercard cards. As a result of our disclosure process, Mastercard has implemented defense mechanisms, which we experimentally confirmed as effective against the attack.
+[**The attack on Mastercard**](#attack-on-mastercard) allows criminals to trick a terminal into transacting with a victim's  Mastercard contactless card while believing it to be a Visa card. This *card brand mixup* has critical consequences since it can be used in combination with the PIN bypass for Visa to also bypass the PIN for Mastercard cards. As a result of our disclosure process, Mastercard has since implemented defense mechanisms, which we experimentally confirmed as effective against the attack.
 
 ## Demonstrating the attacks
 
@@ -30,7 +30,7 @@ We have successfully tested this attack with Visa Credit, Visa Debit, Visa Elect
 <iframe src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-This attack may also affect Discover and UnionPay cards. Our findings have been covered by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html), [The Hacker News](https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html), [ZDNet](https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/), [Schweizer Radio und Fernsehen (SRF)](https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html#1130993), [heise](https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html), and a full technical report is given in our paper:
+This attack may also affect Discover and UnionPay cards. Our findings have been covered by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html#1130993), [Schweizer Radio und Fernsehen (SRF)](https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt), [The Hacker News](https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html), [ZDNet](https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/), [heise](https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html), and a full technical report is given in our paper:
 
 <div class="box">
 <b>The EMV Standard: Break, Fix, Verify</b><br />
@@ -52,7 +52,7 @@ We have successfully tested this attack with Mastercard credit and Maestro debit
 <iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-This attack may also affect JCB and American Express cards. Our research has been featured by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html), [The Hacker News](https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729), and a full technical report is given in our paper:
+This attack may also affect JCB and American Express cards. Our research has been featured by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729), [The Hacker News](https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html), and a full technical report is given in our paper:
 
 <div class="box">
 <b>Card Brand Mixup Attack:</b><br /><b>Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
@@ -97,32 +97,32 @@ This attack applies to both the Visa and Mastercard protocols. In the case of th
 
 <details>
 <summary>Has there been any response by the affected companies?</summary>
-<p>We have disclosed the attacks to both Visa and Mastercard. As the result of a successful disclosure process with Mastercard, the payment network has implemented defense mechanisms against the attack affecting their cards.</p>
+<p>We have disclosed the attacks to both Visa and Mastercard. As a result of our successful disclosure process with Mastercard, the payment network has since implemented and rolled out defense mechanisms against the attack affecting their cards.</p>
 </details>
 
 <details>
 <summary>What role did Tamarin play in this research?</summary>
-<p>Tamarin is a state-of-the-art verification tool. With it, we analysed the full execution flow of an EMV transaction with unboundedly many executions occurring simultaneously in an adversarial environment, where all messages exchanged between the terminal and the card can be read/blocked/injected. The outcome of this analysis were the two novel attacks we focus on in the paper, as well as the rediscovery of existing ones. We also used Tamarin to design and verify (under all adversarial conditions explained above) defenses to all attacks.</p>
+<p>Tamarin is a state-of-the-art verification tool. With it, we analysed the full execution flow of an EMV transaction with unboundedly many executions occurring simultaneously in an adversarial environment, where all messages exchanged between the terminal and the card can be read/blocked/injected. The outcome of this analysis was the identification of the novel attacks we focus here, as well as the rediscovery of existing ones. We also used Tamarin to design and verify (under all adversarial conditions explained above) defenses to all attacks.</p>
 </details>
 
 <details>
 <summary>There have been many attacks on EMV before, what makes these different?</summary>
-<p>Practical attacks reported before are either conspicuous –thus hard to exploit in practice, or do not seem lucrative for criminals –due to being possible for low amount purchases only. Our attacks allow criminals to carry out high-value fraudulent transactions and are performed using an app that look just like a commercial payment app such as Apple/Google Pay, thus evading detection.</p>
+<p>Practical attacks reported before are either conspicuous and thus hard to exploit in practice, or do not seem lucrative for criminals due to being possible for low-value purchases only. Our attacks allow criminals to carry out high-value fraudulent transactions and are performed using an app that look just like a commercial payment app such as Apple Pay or Google Pay, thus evading detection.</p>
 </details>
 
 <details>
 <summary>What went wrong? How can such problems be avoided in the future?</summary>
-<p>Critical data sent by the card during a transaction are not authenticated. Complex systems such as EMV must be analysed by automated tools, like model checkers. Humans cannot deal with the volume of execution steps and branches a complex system has, and so security breaches are often missed.</p>
+<p>Critical data sent by the card during a transaction are not authenticated. Complex systems such as EMV must be analyzed by automated tools, like model checkers. Humans cannot deal with the volume of execution steps and branches a complex system has, and so security breaches are often missed.</p>
 </details>
 
 <details>
 <summary>Should we protect our cards in a “metal wallet” to prevent them being read remotely?</summary>
-<p>This might help.  Although you still have problems if they are lost or stolen.</p>
+<p>This might help. Although you still have problems if they are lost or stolen.</p>
 </details>
 
 <details>
 <summary>What actions should I as a citizen take now to protect myself?</summary>
-<p>Protection measures recommended by banks apply. Block your card immediately upon realization it is lost or stolen. Check your bank statement regularly, and immediately report to your bank whenever you see an unrecognized transaction. Additionally, we recommend that, whenever you carry a Visa card, make sure nobody is holding a device near it against your will. Also, be aware of your back pocket in queues.</p>
+<p>Protection measures recommended by banks apply. Block your card immediately upon realization it is lost or stolen. Check your bank statement regularly, and immediately report to your bank whenever you see an unrecognized transaction. Additionally, whenever you are carrying an EMV contactless card, make sure nobody is holding a device near it against your will. Also, be aware of your back pocket.</p>
 </details>
 
 <!--<details>
