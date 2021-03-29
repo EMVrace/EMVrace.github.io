@@ -1,6 +1,6 @@
-EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. There are 9.89 billion EMV cards in circulation worldwide, according to EMVCo's [Annual Report 2020](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf). Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
+EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2020, EMVCo [reported](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf) 9.89 billion EMV cards in circulation worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
-We have specified a comprehensive [model](https://github.com/EMVrace/EMVerify) (extended [here](https://github.com/EMVrace/EMVerify-PAN-routing)) of the EMV protocol, using the state-of-the-art model checker [Tamarin](https://tamarin-prover.github.io/). Using our models, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
+We have specified a comprehensive [model](https://github.com/EMVrace/EMVerify) (extended [here](https://github.com/EMVrace/EMVerify-PAN-routing)) of the EMV protocol, using the [Tamarin](https://tamarin-prover.github.io/) model checker. Using our models, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
 
 [**The attack on Visa**](#attack-on-visa) allows criminals to complete a purchase over the PIN-less limit with a victim's Visa contactless card without knowing the card's PIN. In other words, *the PIN in your Visa card is useless* as it won't protect your card from being used for fraudulent, high-value purchases.
 
@@ -10,13 +10,13 @@ We have specified a comprehensive [model](https://github.com/EMVrace/EMVerify) (
 
 To demonstrate the feasibility of the attacks, we developed a proof-of-concept Android application. Our app implements the attacks as [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks built on top of a [relay attack](https://en.wikipedia.org/wiki/Relay_attack) architecture, using two NFC-enabled phones.
 
-![Image](assets/images/relay_attack.png "Relay attack")
+![Image](assets/img/relay_attack.png "Relay attack")
 
 The outermost devices are the payment terminal (on the left) and the victim's contactless card (on the right). The phone near the payment terminal is the attacker's card emulator device and the phone near the victim's card is the attacker's POS emulator device. The attacker's devices communicate with each other over WiFi, and with the terminal and the card over NFC.
 
 For the attacks to work, the criminals must have access to the victim's card, either by stealing it, finding it if lost, or by holding the POS emulator near it if still in the victim's possession. The attacks work by modifying the terminal's commands and the card's responses before delivering them to the corresponding recipient.
 
-Our app does not require root privileges or any hacks to Android. We have successfully used it on Google Pixel and Huawei devices.
+Our app does not require root privileges or any hacks to Android. We have used it on Google Pixel 2 XL and Huawei P Smart 2019 devices.
 
 ### Attack on Visa
 
@@ -27,7 +27,8 @@ The attack consists in a modification of the Card Transaction Qualifiers (CTQ, a
 We have successfully tested this attack with Visa Credit, Visa Debit, Visa Electron, and V Pay cards. A video demonstration for a **200 CHF** transaction is given below. <!--We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards. No merchant or any other entities were defrauded.-->
 
 <div class="demo">
-<iframe src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!--<iframe src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<iframe src="https://www.youtube.com/embed/HrBgPIiqqf8?start=32" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 This attack may also affect Discover and UnionPay cards. Our findings have been covered by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html#1130993), [Schweizer Radio und Fernsehen (SRF)](https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt), [The Hacker News](https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html), [ZDNet](https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/), [heise](https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html), and a full technical report is given in our paper:
@@ -42,11 +43,11 @@ David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
 
 This attack primarily consists in the replacement of the card's legitimate Application Identifiers (AIDs) with the Visa AID `A0000000031010` to deceive the terminal into activating the Visa kernel. The attacker then simultaneously performs a Visa transaction with the terminal and a Mastercard transaction with the card. In the Visa transaction, the attacker applies the aforementioned attack on Visa.
 
-For this attack to work, the terminal's authorization request must reach the card-issuing bank, and for this various conditions must be met, including that:
+For this attack to work, the terminal's authorization request must reach the card-issuing bank. Requirements for this include:
 * the terminal does not decline offline even if the card number (PAN) and the AIDs indicate different card brands, and
 * the merchant's acquirer routes the transaction authorization request to a payment network that can process Mastercard cards.
 
-We have successfully tested this attack with Mastercard credit and Maestro debit cards. A video demonstration for a **400 CHF** transaction is given below.
+We have successfully tested this attack with Mastercard Credit and Maestro cards. A video demonstration for a **400 CHF** transaction is given below.
 
 <div class="demo">
 <iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -92,7 +93,7 @@ This attack applies to both the Visa and Mastercard protocols. In the case of th
 
 <details>
 <summary>What cards are affected by these attacks?</summary>
-<p>We have successfully bypassed the PIN for Visa Credit, Visa Debit, Visa Electron, V Pay, Mastercard credit, and Maestro debit cards. Further EMV cards may be affected but we have no proof of this in the wild.</p>
+<p>We have successfully bypassed the PIN for Visa Credit, Visa Debit, Visa Electron, V Pay, Mastercard Credit, and Maestro cards. Further EMV cards may be affected but we have no proof of this in the wild.</p>
 </details>
 
 <details>
