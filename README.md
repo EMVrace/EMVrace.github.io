@@ -28,7 +28,7 @@ We have successfully tested this attack with Visa Credit, Visa Debit, Visa Elect
 
 <div id="demo-visa" class="demo" playsinline>
 <!-- <iframe src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-<video width="100%" controls>
+<video width="100%" poster="assets/img/Visa200CHF-poster.png" controls>
 	<source src="assets/video/Visa200CHF.mp4" type="video/mp4">
 	<source src="assets/video/Visa200CHF.webm" type="video/webm">
 	Your browser does not support the video tag.
@@ -55,7 +55,7 @@ We have successfully tested this attack with Mastercard Credit and Maestro cards
 
 <div id="demo-mastercard" class="demo">
 <!-- <iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-<video width="100%" controls>
+<video width="100%" poster="assets/img/Maestro400CHF-poster.png" controls>
 	<source src="assets/video/Maestro400CHF.mp4" type="video/mp4">
 	<source src="assets/video/Maestro400CHF.webm" type="video/webm">
 	Your browser does not support the video tag.
