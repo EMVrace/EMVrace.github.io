@@ -1,6 +1,6 @@
 EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2020, EMVCo [reported](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf) 9.89 billion EMV cards in circulation worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
-We have specified a comprehensive [model](https://github.com/EMVrace/EMVerify) (extended [here](https://github.com/EMVrace/EMVerify-PAN-routing)) of the EMV protocol, using the [Tamarin](https://tamarin-prover.github.io/) model checker. Using our models, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
+We have specified a comprehensive model of the EMV protocol, using the [Tamarin](https://tamarin-prover.github.io/) model checker. Using our model, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
 
 [**The attack on Visa**](#attack-on-visa) allows criminals to complete a purchase over the PIN-less limit with a victim's Visa contactless card without knowing the card's PIN. In other words, *the PIN in your Visa card is useless* as it won't protect your card from being used for fraudulent, high-value purchases.
 
@@ -40,7 +40,13 @@ This attack may also affect Discover and UnionPay cards. Our findings have been 
 <div class="box">
 <b>The EMV Standard: Break, Fix, Verify</b><br />
 David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
-<em>42nd IEEE Symposium on Security and Privacy (S&P), 2021</em>
+<em>42nd IEEE Symposium on Security and Privacy (S&P), 2021</em><br />
+<span style="font-size: .8rem">
+<a href="https://arxiv.org/pdf/2006.08249.pdf"><i class="far fa-file-pdf"></i> PDF (arXiv)</a> | 
+<a href="https://doi.ieeecomputersociety.org/10.1109/SP40001.2021.00037"><i class="fas fa-link"></i> DOI</a> | 
+<a href="https://www.computer.org/csdl/api/v1/citation/bibtex/proceedings/1mbmGIGBpK0/893400a629"><i class="fas fa-link"></i> BibTex</a> | 
+<a href="https://github.com/EMVrace/EMVerify"><i class="fab fa-github"></i> Tamarin model</a>
+</span>
 </div>
 
 ### Attack on Mastercard
@@ -67,7 +73,12 @@ This attack may also affect JCB and American Express cards. Our research has bee
 <div class="box">
 <b>Card Brand Mixup Attack:</b><br /><b>Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
 David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
-<em>30th USENIX Security Symposium, 2021</em>
+<em>30th USENIX Security Symposium, 2021</em><br />
+<span style="font-size: .8rem">
+<a href="https://www.usenix.org/system/files/sec21fall-basin.pdf"><i class="far fa-file-pdf"></i> PDF</a> | 
+<a href="https://www.usenix.org/biblio/export/bibtex/272165"><i class="fas fa-download"></i> BibTex</a> | 
+<a href="https://github.com/EMVrace/EMVerify-PAN-routing"><i class="fab fa-github"></i> Tamarin model</a>
+</span>
 </div>
 
 
