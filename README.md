@@ -1,3 +1,5 @@
+<div class="box" style="text-align: center"><b>Our Oakland S&P'21 paper receives the <a href="https://twitter.com/thorstenholz/status/1396852408442044419"><i class="fas fa-award"></i> Best Practical Paper Award</a>!!!</b></div>
+
 EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2020, EMVCo [reported](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf) 9.89 billion EMV cards in circulation worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
 We have specified a comprehensive model of the EMV protocol, using the [Tamarin](https://tamarin-prover.github.io/) model checker. Using our model, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
@@ -24,7 +26,7 @@ The attack consists in a modification of the Card Transaction Qualifiers (CTQ, a
 * PIN verification is not required, and
 * the cardholder was verified on the consumer's device (e.g., a smartphone).
 
-We have successfully tested this attack with Visa Credit, Visa Debit, Visa Electron, and V Pay cards. A video demonstration for a **200 CHF** transaction is given below. <!--We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards. No merchant or any other entities were defrauded.-->
+We have successfully tested this attack with Visa Credit, Visa Debit, Visa Electron, and V Pay cards. A video demonstration for a **200 CHF** transaction is given below<!-- (available also on [YouTube](https://youtu.be/JyUsMLxCCt8))-->. <!--We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards. No merchant or any other entities were defrauded.-->
 
 <div id="demo-visa" class="demo" playsinline>
 <!-- <iframe src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
@@ -57,7 +59,7 @@ For this attack to work, the terminal's authorization request must reach the car
 * the terminal does not decline offline even if the card number (PAN) and the AIDs indicate different card brands, and
 * the merchant's acquirer routes the transaction authorization request to a payment network that can process Mastercard cards.
 
-We have successfully tested this attack with Mastercard Credit and Maestro cards. A video demonstration for a **400 CHF** transaction is given below.
+We have successfully tested this attack with Mastercard Credit and Maestro cards. A video demonstration for a **400 CHF** transaction is given below (available also on [YouTube](https://youtu.be/8d7UgIiMRBU)).
 
 <div id="demo-mastercard" class="demo">
 <!-- <iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
