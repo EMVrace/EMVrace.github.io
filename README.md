@@ -1,4 +1,4 @@
-<div class="box" style="text-align: center"><b>Our Oakland S&P'21 paper receives the <a href="https://www.ieee-security.org/TC/SP2021/awards.html"><i class="fas fa-award"></i> Best Practical Paper Award</a>!!!</b></div>
+<div class="box" style="text-align: center"><b>Our Oakland S&P'21 paper received the <a href="https://www.ieee-security.org/TC/SP2021/awards.html"><i class="fas fa-award"></i> Best Practical Paper Award</a>!!!</b></div>
 
 EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2020, EMVCo [reported](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf) 9.89 billion EMV cards in circulation worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
