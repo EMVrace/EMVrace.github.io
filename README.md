@@ -18,7 +18,7 @@ The outermost devices are the payment terminal (on the left) and the victim's co
 
 For the attacks to work, the criminals must have access to the victim's card, either by stealing it, finding it if lost, or by holding the POS emulator near it if still in the victim's possession. The attacks work by modifying the terminal's commands and the card's responses before delivering them to the corresponding recipient.
 
-Our app does not require root privileges or any hacks to Android. We have used it on Google Pixel 2 XL and Huawei P Smart 2019 devices.
+Our app does not require root privileges or any hacks to the Android OS. We have used it on Google Pixel, Samsung, and Huawei devices.
 
 ### Attack on Visa
 
@@ -26,7 +26,7 @@ The attack consists in a modification of the Card Transaction Qualifiers (CTQ, a
 * PIN verification is not required, and
 * the cardholder was verified on the consumer's device (e.g., a smartphone).
 
-We have successfully tested this attack with Visa Credit, Visa Debit, Visa Electron, and V Pay cards. A video demonstration for a **200 CHF** transaction is given below<!-- (available also on [YouTube](https://youtu.be/JyUsMLxCCt8))-->. <!--We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards. No merchant or any other entities were defrauded.-->
+We have successfully tested this attack with Visa Credit, Visa Debit, Visa Electron, and V Pay cards. A video demonstration for a **200 CHF** transaction is given below<!-- (used to be available also on [YouTube](https://youtu.be/JyUsMLxCCt8))-->. <!--We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards. No merchant or any other entities were defrauded.-->
 
 <div id="demo-visa" class="demo" playsinline>
 <!-- <iframe src="https://www.youtube-nocookie.com/embed/JyUsMLxCCt8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
@@ -59,15 +59,15 @@ For this attack to work, the terminal's authorization request must reach the car
 * the terminal does not decline offline even if the card number (PAN) and the AIDs indicate different card brands, and
 * the merchant's acquirer routes the transaction authorization request to a payment network that can process Mastercard cards.
 
-We have successfully tested this attack with Mastercard Credit and Maestro cards. A video demonstration for a **400 CHF** transaction is given below (available also on [YouTube](https://youtu.be/8d7UgIiMRBU)).
+We have successfully tested this attack with Mastercard Credit and Maestro cards. A video demonstration for a **400 CHF** transaction is given below<!-- (available also on [YouTube](https://youtu.be/8d7UgIiMRBU))-->.
 
 <div id="demo-mastercard" class="demo">
-<!-- <iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-<video width="100%" poster="assets/img/Maestro400CHF-poster.png" controls>
+<iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!--<video width="100%" poster="assets/img/Maestro400CHF-poster.png" controls>
 	<source src="assets/video/Maestro400CHF.mp4" type="video/mp4">
 	<source src="assets/video/Maestro400CHF.webm" type="video/webm">
 	Your browser does not support the video tag.
-</video>
+</video>-->
 </div>
 
 This attack may also affect JCB and American Express cards. Our research has been featured by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729), [The Hacker News](https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html), and a full technical report is given in our paper:
