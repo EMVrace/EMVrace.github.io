@@ -43,7 +43,7 @@ This attack may also affect Discover and UnionPay cards. Our findings have been 
 <b>The EMV Standard: Break, Fix, Verify</b><br />
 David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
 <em>42nd IEEE Symposium on Security and Privacy (S&P), 2021</em><br />
-<span style="font-size: .8rem">
+<span style="font-size: .9rem">
 <a href="https://arxiv.org/pdf/2006.08249.pdf"><i class="far fa-file-pdf"></i> PDF (arXiv)</a> | 
 <a href="https://doi.ieeecomputersociety.org/10.1109/SP40001.2021.00037"><i class="fas fa-link"></i> DOI</a> | 
 <a href="https://www.computer.org/csdl/api/v1/citation/bibtex/proceedings/1mbmGIGBpK0/893400a629"><i class="fas fa-link"></i> BibTex</a> | 
@@ -73,16 +73,15 @@ We have successfully tested this attack with Mastercard Credit and Maestro cards
 This attack may also affect JCB and American Express cards. Our research has been featured by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729), [The Hacker News](https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html), and a full technical report is given in our paper:
 
 <div class="box">
-<b>Card Brand Mixup Attack:</b><br /><b>Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
+<b>Card Brand Mixup Attack: Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
 David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
 <em>30th USENIX Security Symposium, 2021</em><br />
-<span style="font-size: .8rem">
+<span style="font-size: .9rem">
 <a href="https://www.usenix.org/system/files/sec21fall-basin.pdf"><i class="far fa-file-pdf"></i> PDF</a> | 
 <a href="https://www.usenix.org/biblio/export/bibtex/272165"><i class="fas fa-download"></i> BibTex</a> | 
 <a href="https://github.com/EMVrace/EMVerify-PAN-routing"><i class="fab fa-github"></i> Tamarin model</a>
 </span>
 </div>
-
 
 <!--
 ### Making the terminal accept fake offline transactions

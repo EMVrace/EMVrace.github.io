@@ -1,7 +1,7 @@
+--- 
 ---
----
+
 $body-text-color: #606060 !default;
-//$blockquote-text-color: #808080 !default;
 
 @import "{{ site.theme }}";
 
@@ -18,9 +18,10 @@ $body-text-color: #606060 !default;
   @include small {
     padding: 2rem 1rem;
   }*/
-  
+
   .white {
     color: white;
+
     &:hover {
       text-decoration: none;
     }
@@ -42,17 +43,15 @@ $body-text-color: #606060 !default;
   }*/
 }
 
-details > summary {
+details>summary {
   color: $body-link-color;
   margin-bottom: .5rem;
   cursor: pointer;
   outline: none;
 }
 
-details > p {
+details>p {
   margin-top: .5rem;
-  //margin-bottom: .5rem;
-  //margin-left: 20px;
 }
 
 .box {
@@ -61,7 +60,7 @@ details > p {
   border-radius: 0.3rem;
   margin-top: 0;
   margin-bottom: 1rem;
-  padding: 2px 4px;
+  padding: .35rem .75rem;
   background-color: $code-bg-color;
   border-radius: 0.3rem;
 }
@@ -69,6 +68,7 @@ details > p {
 .demo {
   max-width: 560px;
   margin: auto;
+
   iframe {
     width: 560px;
     height: 315px;
@@ -79,6 +79,7 @@ details > p {
 @media all and (max-width: 580px) {
   .demo {
     max-width: 320px;
+
     iframe {
       width: 320px;
       height: 240px;
