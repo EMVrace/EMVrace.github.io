@@ -75,6 +75,20 @@ details>p {
   }
 }
 
+.my-table {
+  td {
+    white-space: normal;
+    vertical-align: top;
+    ul {
+      margin-left: -1em;
+    }
+  }
+  tr>th {
+    font-weight: normal;
+    color: $section-headings-color;
+  }
+}
+
 /* reduce the size of the demo videos for small screen */
 @media all and (max-width: 580px) {
   .demo {

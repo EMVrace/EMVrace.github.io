@@ -37,7 +37,7 @@ We have successfully tested this attack with Visa Credit, Visa Debit, Visa Elect
 </video>
 </div>
 
-This attack may also affect Discover and UnionPay cards. Our findings have been covered by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html#1130993), [Schweizer Radio und Fernsehen (SRF)](https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt), [The Hacker News](https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html), [ZDNet](https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/), [heise](https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html), and a full technical report is given in our paper:
+This attack may also affect Discover and UnionPay cards. A full technical report is given in our paper:
 
 <div class="box">
 <b>The EMV Standard: Break, Fix, Verify</b><br />
@@ -70,7 +70,7 @@ We have successfully tested this attack with Mastercard Credit and Maestro cards
 </video>-->
 </div>
 
-This attack may also affect JCB and American Express cards. Our research has been featured by [ETH Zurich](https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html), [ACM TechNews](https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729), [The Hacker News](https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html), and a full technical report is given in our paper:
+This attack may also affect JCB and American Express cards. A full technical report is given in our paper:
 
 <div class="box">
 <b>Card Brand Mixup Attack: Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
@@ -162,12 +162,40 @@ This attack applies to both the Visa and Mastercard protocols. In the case of th
 
 Parts of the code of our app were inspired by the apps [EMVemulator](https://github.com/MatusKysel/EMVemulator), [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test), and [SwipeYours](https://github.com/dimalinux/SwipeYours). We thank their authors. We also thank [EFT Lab](https://www.eftlab.com/) for making the lists of EMV tags and CA public keys available.-->
 
+## Media
+
+Our findings have attracted significant media attention (a Google [search](https://www.google.com/search?q=emv+pin+bypass+attack+eth) can give an idea). Below we list some of the most relevant articles available on the web:
+
+<table class="my-table">
+<tr>
+	<tr>
+	<th>On the Visa attack</th>
+	<th>On the Mastercard attack</th>
+	</tr>
+	<td>
+		<ul>
+			<li><a href="https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/">ZDNet</a></li>
+			<li><a href="https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html">The Hacker News</a></li>
+			<li><a href="https://developer.mastercard.com/blog/multi-layered-security-stops-pin-bypass/">Mastercard developers</a></li>
+			<li><a href="https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt">Schweizer Radio und Fernsehen (SRF)</a></li>
+			<li><a href="https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html">ETH Zurich</a></li>
+			<li><a href="https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html#1130993">ACM TechNews</a></li>
+			<li><a href="https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html">heise</a></li>
+		</ul>
+	</td>
+	<td>
+		<ul>
+			<li><a href="https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html">The Hacker News</a></li>
+			<li><a href="https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729">ACM TechNews</a></li>
+ 			<li><a href="https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html">ETH Zurich</a></li>
+		</ul>
+	</td>
+</tr>
+</table>
+
 ## Team
 
-Prof. Dr. [David Basin](https://www.inf.ethz.ch/personal/basin/)<br />
-Dr. [Ralf Sasse](https://people.inf.ethz.ch/rsasse/)<br />
-Dr. [Jorge Toro](https://jorgetp.github.io/)
-
-[Institute of Information Security](https://informationsecurity.ethz.ch/)<br />
-[Department of Computer Science](https://inf.ethz.ch/)<br />
-[ETH Zurich](https://www.ethz.ch/en)
+[David Basin](https://www.inf.ethz.ch/personal/basin/), [Ralf Sasse](https://people.inf.ethz.ch/rsasse/), and [Jorge Toro](https://jorgetp.github.io/)<br />
+Institute of Information Security<br />
+Department of Computer Science<br />
+ETH Zurich
