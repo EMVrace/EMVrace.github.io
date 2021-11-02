@@ -1,4 +1,4 @@
---- 
+---
 ---
 
 $body-text-color: #606060 !default;
@@ -76,16 +76,23 @@ details>p {
 }
 
 .my-table {
-  td {
-    white-space: normal;
-    vertical-align: top;
-    ul {
-      margin-left: -1em;
+  tr {
+    td {
+      border: none;
+      white-space: normal;
+      vertical-align: top;
+
+      ul {
+        margin-left: -1em;
+      }
     }
-  }
-  tr>th {
-    font-weight: normal;
-    color: $section-headings-color;
+    th {
+      border: none;
+      vertical-align: bottom;
+      text-align: left;
+      font-weight: normal;
+      color: $section-headings-color;
+    }
   }
 }
 

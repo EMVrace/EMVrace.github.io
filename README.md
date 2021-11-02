@@ -164,13 +164,13 @@ Parts of the code of our app were inspired by the apps [EMVemulator](https://git
 
 ## Media
 
-Our findings have attracted significant media attention (a Google [search](https://www.google.com/search?q=emv+pin+bypass+attack+eth) can give an idea). Below we list some of the most relevant articles available on the web:
+Our findings have drawn significant media attention (a Google [search](https://www.google.com/search?q=emv+pin+bypass+attack+eth) can give an idea). Below we list some of the most relevant articles available on the web:
 
 <table class="my-table">
 <tr>
 	<tr>
-	<th>On the Visa attack</th>
-	<th>On the Mastercard attack</th>
+	<th>On the Visa attack:</th>
+	<th>On the Mastercard attack:</th>
 	</tr>
 	<td>
 		<ul>
