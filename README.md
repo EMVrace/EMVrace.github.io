@@ -1,6 +1,4 @@
-<div class="box" style="text-align: center"><b>Our Oakland S&P'21 paper received the <a href="https://www.ieee-security.org/TC/SP2021/awards.html"><i class="fas fa-award"></i> Best Practical Paper Award</a>!!!</b></div>
-
-EMV, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2020, EMVCo [reported](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf) 9.89 billion EMV cards in circulation worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
+**EMV**, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2020, EMVCo [reported](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf) 9.89 billion EMV cards in circulation worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
 We have specified a comprehensive model of the EMV protocol, using the [Tamarin](https://tamarin-prover.github.io/) model checker. Using our model, we identified several authentication flaws that lead to two critical attacks: one affecting Visa cards and another affecting Mastercard cards.
 
@@ -43,12 +41,13 @@ This attack may also affect Discover and UnionPay cards. A full technical report
 <b>The EMV Standard: Break, Fix, Verify</b><br />
 David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
 <em>42nd IEEE Symposium on Security and Privacy (S&P), 2021</em><br />
-<span style="font-size: .9rem">
+[<span style="font-size: .9rem">
 <a href="https://arxiv.org/pdf/2006.08249.pdf"><i class="far fa-file-pdf"></i> PDF (arXiv)</a> | 
 <a href="https://doi.ieeecomputersociety.org/10.1109/SP40001.2021.00037"><i class="fas fa-link"></i> DOI</a> | 
 <a href="https://www.computer.org/csdl/api/v1/citation/bibtex/proceedings/1mbmGIGBpK0/893400a629"><i class="fas fa-link"></i> BibTex</a> | 
-<a href="https://github.com/EMVrace/EMVerify"><i class="fab fa-github"></i> Tamarin model</a>
-</span>
+<a href="https://github.com/EMVrace/EMVerify"><i class="fab fa-github"></i> Tamarin model</a> | 
+<a href="https://www.ieee-security.org/TC/SP2021/awards.html"><i class="fas fa-award"></i> <b>Best Practical Paper Award</b></a>
+</span>]
 </div>
 
 ### Attack on Mastercard
@@ -76,11 +75,11 @@ This attack may also affect JCB and American Express cards. A full technical rep
 <b>Card Brand Mixup Attack: Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions</b><br />
 David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
 <em>30th USENIX Security Symposium, 2021</em><br />
-<span style="font-size: .9rem">
+[<span style="font-size: .9rem">
 <a href="https://www.usenix.org/system/files/sec21fall-basin.pdf"><i class="far fa-file-pdf"></i> PDF</a> | 
 <a href="https://www.usenix.org/biblio/export/bibtex/272165"><i class="fas fa-download"></i> BibTex</a> | 
 <a href="https://github.com/EMVrace/EMVerify-PAN-routing"><i class="fab fa-github"></i> Tamarin model</a>
-</span>
+</span>]
 </div>
 
 <!--
@@ -89,6 +88,35 @@ David Basin, Ralf Sasse, and Jorge Toro-Pozo<br />
 This attack allows a criminal to use their own card to complete a low-value, offline transaction, while not being actually charged. The attack consists in a modification of a card-produced data object --the Application Cryptogram-- before delivering it to the terminal. The terminal cannot detect this modification; only the bank can, yet after the consumer/criminal is long gone with the goods.
 
 This attack applies to both the Visa and Mastercard protocols. In the case of the latter, it only applies to transactions with (likely old) cards that do not support the CDA authentication method. For ethical reasons, we did not test this second attack in practice.-->
+
+## Media
+
+Our findings have drawn significant media attention (a Google [search](https://www.google.com/search?q=emv+pin+bypass+attack+eth) can give an idea). Below we list some of the most relevant articles available on the web:
+
+<div class="row">
+	<div class="col-sm-6">
+		<h5>On the Visa attack</h5>
+		<ul>
+			<li><a href="https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/">ZDNet</a></li>
+			<li><a href="https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html">The Hacker News</a></li>
+			<!--<li><a href="https://developer.mastercard.com/blog/multi-layered-security-stops-pin-bypass/">Mastercard developers</a></li>-->
+			<li><a href="https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt">Schweizer Radio und Fernsehen (SRF)</a></li>
+			<li><a href="https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html">ETH Zurich</a></li>
+			<li><a href="https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html#1130993">ACM TechNews</a></li>
+			<li><a href="https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html">heise</a></li>
+			<li><a href="https://www.vgtv.no/video/205022/ny-svindelmetode-slik-kan-de-kopiere-kortet-ditt-i-koeen">VG TV</a></li>
+		</ul>
+	</div>
+	<div class="col-sm-6">
+		<h5>On the Mastercard attack</h5>
+		<ul>
+			<li><a href="https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html">The Hacker News</a></li>
+			<li><a href="https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729">ACM TechNews</a></li>
+ 			<li><a href="https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html">ETH Zurich</a></li>
+		</ul>
+	</div>
+</div>
+
  
 ## FAQ
 
@@ -161,37 +189,6 @@ This attack applies to both the Visa and Mastercard protocols. In the case of th
 ## Acknowledgments
 
 Parts of the code of our app were inspired by the apps [EMVemulator](https://github.com/MatusKysel/EMVemulator), [EMV-Card ROCA-Keytest](https://github.com/johnzweng/android-emv-key-test), and [SwipeYours](https://github.com/dimalinux/SwipeYours). We thank their authors. We also thank [EFT Lab](https://www.eftlab.com/) for making the lists of EMV tags and CA public keys available.-->
-
-## Media
-
-Our findings have drawn significant media attention (a Google [search](https://www.google.com/search?q=emv+pin+bypass+attack+eth) can give an idea). Below we list some of the most relevant articles available on the web:
-
-<table class="my-table">
-<tr>
-	<tr>
-	<th>On the Visa attack:</th>
-	<th>On the Mastercard attack:</th>
-	</tr>
-	<td>
-		<ul>
-			<li><a href="https://www.zdnet.com/article/academics-bypass-pins-for-visa-contactless-payments/">ZDNet</a></li>
-			<li><a href="https://thehackernews.com/2020/09/emv-payment-card-pin-hacking.html">The Hacker News</a></li>
-			<li><a href="https://developer.mastercard.com/blog/multi-layered-security-stops-pin-bypass/">Mastercard developers</a></li>
-			<li><a href="https://www.srf.ch/news/schweiz/eth-forscher-warnen-sicherheitsluecke-bei-visa-kreditkarten-entdeckt">Schweizer Radio und Fernsehen (SRF)</a></li>
-			<li><a href="https://ethz.ch/en/news-and-events/eth-news/news/2020/09/outsmarting-the-pin-code.html">ETH Zurich</a></li>
-			<li><a href="https://technews.acm.org/archives.cfm?fo=2020-09-sep/sep-04-2020.html#1130993">ACM TechNews</a></li>
-			<li><a href="https://www.heise.de/security/meldung/Zahlen-ohne-PIN-Forscher-knacken-Visas-NFC-Bezahlfunktion-4881555.html">heise</a></li>
-		</ul>
-	</td>
-	<td>
-		<ul>
-			<li><a href="https://thehackernews.com/2021/02/new-hack-lets-attackers-bypass.html">The Hacker News</a></li>
-			<li><a href="https://technews.acm.org/archives.cfm?fo=2021-02-feb/feb-26-2021.html#1151729">ACM TechNews</a></li>
- 			<li><a href="https://ethz.ch/en/news-and-events/eth-news/news/2021/02/security-flaw-detected-for-the-second-time-in-credit-cards.html">ETH Zurich</a></li>
-		</ul>
-	</td>
-</tr>
-</table>
 
 ## Team
 

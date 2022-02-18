@@ -17,6 +17,9 @@
   {% endif %}
   <meta charset="UTF-8">
 
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   {% seo %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#157878">
@@ -37,8 +40,8 @@
   <!--<a id="skip-to-content" href="#content">Skip to the content.</a>-->
 
   <header class="page-header" role="banner">
-    <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-    <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+    <h1 class="project-name pt-2 pb-3 font-weight-bold">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+    <h2 class="project-tagline pb-2">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
     <!-- 
       {% if site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
@@ -49,9 +52,9 @@
       {% endif %}
       -->
     {% if site.header_btns %}
-    {% for btn in site.header_btns %}
-    {{ btn }}
-    {% endfor %}
+      {% for btn in site.header_btns %}
+        {{ btn }}
+      {% endfor %}
     {% endif %}
   </header>
 
