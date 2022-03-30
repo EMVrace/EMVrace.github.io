@@ -11,7 +11,7 @@ github:
   owner_url: https://jorgetp.github.io/
 
 header_btns:
-  - <a href="https://arxiv.org/pdf/2006.08249.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> PIN bypass for Visa</a>
-  - <a href="https://www.usenix.org/system/files/sec21fall-basin.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> PIN bypass for Mastercard</a>
+  - <a href="https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/emv-sp21.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> PIN bypass for Visa</a>
+  - <a href="https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/sec21fall-basin.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> PIN bypass for Mastercard</a>
   #- <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Get Tamarin models</a>
   #- <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Watch demo video</a>
