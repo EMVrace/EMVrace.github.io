@@ -5,6 +5,10 @@ $body-text-color: #606060 !default;
 
 @import "{{ site.theme }}";
 
+html, body {
+  font-size: 16px;
+}
+
 .page-header {
 
   /*@include large {
