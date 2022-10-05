@@ -29,7 +29,7 @@ In technical details, the attack consists in a modification of the Card Transact
 We have successfully tested this attack with Visa Credit, Visa Debit, Visa Electron, and V Pay cards, but it may also affect Discover and UnionPay cards. An attack demo for a **200 CHF** transaction with a Visa card is given below<!-- (used to be available also on [YouTube](https://youtu.be/JyUsMLxCCt8))-->. <!--We also tested the attack in live terminals at actual stores. For all of our attack tests, we used our own credit/debit cards. No merchant or any other entities were defrauded.-->
 
 <div id="demo-visa" class="demo" playsinline>
-<video width="100%" controls>
+<video width="100%" poster="assets/img/Visa200CHF-poster.png" controls>
 	<source src="assets/video/Visa200CHF.mp4" type="video/mp4">
 	<source src="assets/video/Visa200CHF.webm" type="video/webm">
 	Your browser does not support the video tag.
@@ -37,7 +37,7 @@ We have successfully tested this attack with Visa Credit, Visa Debit, Visa Elect
 </div>
 
 {: .pt-3 }
-A full report of this attack is given in our paper:
+A full report on this attack is given in our paper:
 
 {% assign paper = site.papers[0] %}
 <div class="box">
@@ -66,12 +66,20 @@ For this attack to work, the terminal's authorization request must reach the car
 
 We have successfully tested this attack with Mastercard Credit and Maestro cards, but it may also affect JCB and American Express cards. An attack demo for a **400 CHF** transaction with a Maestro card is given below<!-- (available also on [YouTube](https://youtu.be/8d7UgIiMRBU))-->.
 
-<div id="demo-mastercard" class="demo">
-<iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div id="demo-maestro-400" class="demo" playsinline>
+<video width="100%" poster="assets/img/Maestro400CHF-poster.png" controls>
+	<source src="assets/video/Maestro400CHF.mp4" type="video/mp4">
+	<source src="assets/video/Maestro400CHF.webm" type="video/webm">
+	Your browser does not support the video tag.
+</video>
 </div>
 
+<!--<div id="demo-mastercard" class="demo">
+<iframe src="https://www.youtube-nocookie.com/embed/8d7UgIiMRBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>-->
+
 {: .pt-3 }
-A full report of this attack is given in our paper:
+A full report on this attack is given in our paper:
 
 {% assign paper = site.papers[1] %}
 <div class="box">
@@ -98,7 +106,7 @@ As a proof-of-concept exploit, we developed a man-in-the-middle attack that modi
 We have successfully tested both versions of the attack with Mastercard and Maestro cards, in several real-world payment terminals. An attack demo for a **500 CHF** transaction with a Maestro card is given below, where cardholder verification has been downgraded from PIN to signature.
 
 <div id="demo-maestro-500" class="demo" playsinline>
-<video width="100%" controls>
+<video width="100%" poster="assets/img/Maestro500CHF-poster.png" controls>
 	<source src="assets/video/Maestro500CHF.mp4" type="video/mp4">
 	<source src="assets/video/Maestro500CHF.webm" type="video/webm">
 	Your browser does not support the video tag.
@@ -106,7 +114,7 @@ We have successfully tested both versions of the attack with Mastercard and Maes
 </div>
 
 {: .pt-3 }
-A full report of this attack is given in our paper:
+A full report on this attack is given in our paper:
 
 {% assign paper = site.papers[2] %}
 <div class="box">
