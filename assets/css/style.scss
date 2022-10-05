@@ -9,6 +9,10 @@ html, body {
   font-size: 16px;
 }
 
+a:hover {
+  color: $body-link-color;
+}
+
 .page-header {
 
   /*@include large {

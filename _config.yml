@@ -1,7 +1,7 @@
 theme: jekyll-theme-cayman
 
 title: 'The EMV Standard: Break, Fix, Verify'
-description: 'David Basin, Ralf Sasse, and Jorge Toro'
+description: 'David Basin, Ralf Sasse, Patrick Schaller, and Jorge Toro'
 
 show_dowloads: false
 
@@ -10,8 +10,34 @@ github:
   owner_name: Jorge Toro
   owner_url: https://jorgetp.github.io/
 
-header_btns:
-  - <a href="https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/emv-sp21.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> PIN bypass for Visa</a>
-  - <a href="https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/sec21fall-basin.pdf" class="btn"><i class="fa fa-file-pdf-o"></i> PIN bypass for Mastercard</a>
-  #- <a href="https://github.com/EMVrace/EMVerify" class="btn"><i class="fa fa-github"></i> Get Tamarin models</a>
-  #- <a href="https://youtu.be/JyUsMLxCCt8" class="btn"><i class="fa fa-youtube-play"></i> Watch demo video</a>
+papers: #careful with order of these as I'm using site.papers[i] in README.md
+  - title: "The EMV Standard: Break, Fix, Verify"
+    author: "David Basin, Ralf Sasse, and Jorge Toro-Pozo"
+    booktitle: "42nd IEEE Symposium on Security and Privacy (S&P 2021)"
+    pdf: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/emv-sp21.pdf
+    display_btn: PIN bypass for Visa
+    links:
+      - name: BibTex
+        url: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/BasinST21sp.bib
+      - name: Tamarin models
+        url: https://github.com/EMVrace/EMVerify
+      - name: <b>Best Practical Paper Award</b>
+        url: https://jorgetp.github.io/assets/img/oakland-award.jpg
+  - title: "Card Brand Mixup Attack: Bypassing the PIN in non-Visa cards by Using Them for Visa Transactions"
+    author: "David Basin, Ralf Sasse, and Jorge Toro-Pozo"
+    booktitle: "30th USENIX Security Symposium (2021)"
+    pdf: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/sec21fall-basin.pdf
+    display_btn: "Card brand mixup"
+    links:
+      - name: BibTex
+        url: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/BasinST21uss.bib
+      - name: Tamarin models
+        url: https://github.com/EMVrace/EMVerify-PAN-routing
+  - title: "Inducing Authentication Failures to Bypass Credit Card PINs"
+    author: "David Basin, Patrick Schaller, and Jorge Toro-Pozo"
+    booktitle: "32nd USENIX Security Symposium (2023)"
+    pdf: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2023/mastercard-usenix23.pdf
+    display_btn: "PIN bypass for Mastercard"
+    links:
+      - name: BibTex
+        url: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2023/mastercard-usenix23.bib
