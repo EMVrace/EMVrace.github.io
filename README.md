@@ -4,9 +4,9 @@
 
 **EMV**, named after its founders Europay, Mastercard, and Visa, is the international protocol standard for in-store smartcard payment. In December 2020, EMVCo [reported](https://www.emvco.com/wp-content/uploads/documents/EMVCo-Annual-Report-2020.pdf) 9.89 billion EMV cards in circulation worldwide. Despite the standard's advertised security, various issues have been previously uncovered, deriving from logical flaws that are hard to spot in EMV's lengthy and complex specification, running over 2,000 pages.
 
-We have specified a comprehensive model of the EMV protocol, using the [Tamarin](https://tamarin-prover.github.io/) prover. Using our model, we identified several authentication flaws that lead to critical attacks. We describe next the infrastructure needed to carry out these attack and afterwards explain each of the attacks in technical details.
+We have specified a comprehensive model of the EMV protocol, using the [Tamarin](https://tamarin-prover.github.io/) prover. Using our model, we identified several authentication flaws that lead to critical attacks. We describe next how we demonstrated these attacks in practice and afterwards explain each of the attacks in technical details.
 
-### Demonstrating the attacks
+### Demonstrating the Attacks
 
 To demonstrate the feasibility of the attacks, we developed a proof-of-concept Android application. Our app implements the attacks as [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks built on top of a [relay attack](https://en.wikipedia.org/wiki/Relay_attack) architecture, using two NFC-enabled phones.
 
@@ -18,7 +18,7 @@ For the attacks to work, the criminals must have access to the victim's card, ei
 
 Our app does not require root privileges or any hacks to the Android OS. We have used it on Google Pixel, Samsung, and Huawei devices.
 
-### PIN bypass for Visa cards
+### PIN Bypass for Visa Cards
 
 Criminals can complete a purchase over the PIN-required limit with a victim's Visa contactless card without knowing the card's PIN. Namely *the PIN in your Visa card is useless* since it won't prevent your card from being used for unauthorized, high-value purchases.
 
@@ -50,11 +50,11 @@ A full report on this attack is given in our paper:
 {% endfor %}
 </div>
 
-### PIN bypass for Mastercard cards
+### PIN Bypass for Mastercard Cards
 
 We have discovered security flaws that lead to two different variants of a PIN bypass for Mastercard/Maestro cards.
 
-#### Variant 1: Card brand mixup
+#### Variant 1: Card Brand Mixup
 
 Criminals can trick a terminal into transacting with a victim’s Mastercard contactless card while believing it to be a Visa card. This *card brand mixup* attack, in combination with the above PIN bypass for Visa cards, results in a PIN bypass also for Mastercard cards.
 
@@ -92,18 +92,18 @@ A full report on this attack is given in our paper:
 {% endfor %}
 </div>
 
-#### Variant 2: PIN bypass via authentication failures
+#### Variant 2: PIN Bypass via Authentication Failures
 
-In the Mastercard contactless protocol, the payment terminal validates the card and transaction data offline using a PKI, where the root CA's PK is looked up from the terminal's internal database. The pointer to this root PK in the database is determined from unprotected, card-supplied data and thus can be modified arbitrarily. We have observed that if this index is modified to an invalid one (e.g. one that is out of bounds) then the terminal does **not** perform any PKI checks during the transaction. This is a flawed failure mode in the protocol that makes critical data, whose integrity is only protected offline, vulnerable to adversarial modification. Such critical data includes the data that informs the terminal of the card's support for cardholder verification. 
+In the Mastercard contactless transaction, the payment terminal validates the card offline using a PKI, where the root CA's PK is looked up from a terminal's internal list. The index of this root PK in the list is determined from card-supplied data that can be arbitrarily modified. We have observed that if this index is modified to an invalid one (e.g. one that is out of bounds) then the terminal does **not** perform any PKI checks during the transaction. This flawed failure mode in the protocol makes critical data, whose integrity is only protected offline, vulnerable to adversarial modification. Such critical data includes the card's list of supported methods for cardholder verification. 
 
-As a proof-of-concept exploit, we developed a man-in-the-middle attack that modifies this cardholder verification support to make the payment terminal wrongfully believe that the card (under attack) does **not** support PIN verification. We realized two versions of this attack:
+As a proof-of-concept exploit, we developed a man-in-the-middle attack that modifies this cardholder verification support to make the payment terminal believe that the card (under attack) does **not** support PIN verification. We realized two versions of this attack:
 
 * downgrade from PIN to (paper) signature, and
 * complete removal of the cardholder verification support.
 
 <!--The choice of the specific version of the attack can be made by the criminals based on local market regulations and habits, to avoid raising any suspicions. For example, in the US, paper signature is common and so the criminal can opt for the first version of the attack. In Europe, however, the signature method is rarely used and so the criminal can opt for the second version of the attack.-->
 
-We have successfully tested both versions of the attack with Mastercard and Maestro cards, in several real-world payment terminals. An attack demo for a **500 CHF** transaction with a Maestro card is given below, where cardholder verification has been downgraded from PIN to signature.
+We have successfully tested both versions of the attack with Mastercard and Maestro cards, in several real-world payment terminals. An attack demo for a **500 CHF** transaction with a Maestro card is given below, where the cardholder verification has been downgraded from PIN to signature.
 
 <div id="demo-maestro-500" class="demo" playsinline>
 <video width="100%" poster="assets/img/Maestro500CHF-poster.png" controls>

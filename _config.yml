@@ -15,7 +15,7 @@ papers: #careful with order of these as I'm using site.papers[i] in README.md
     author: "David Basin, Ralf Sasse, and Jorge Toro-Pozo"
     booktitle: "42nd IEEE Symposium on Security and Privacy (S&P 2021)"
     pdf: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/emv-sp21.pdf
-    display_btn: PIN bypass for Visa
+    display_btn: PIN Bypass for Visa
     links:
       - name: BibTex
         url: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/BasinST21sp.bib
@@ -27,7 +27,7 @@ papers: #careful with order of these as I'm using site.papers[i] in README.md
     author: "David Basin, Ralf Sasse, and Jorge Toro-Pozo"
     booktitle: "30th USENIX Security Symposium (2021)"
     pdf: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/sec21fall-basin.pdf
-    display_btn: "Card brand mixup"
+    display_btn: Card Brand Mixup
     links:
       - name: BibTex
         url: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2021/BasinST21uss.bib
@@ -37,7 +37,7 @@ papers: #careful with order of these as I'm using site.papers[i] in README.md
     author: "David Basin, Patrick Schaller, and Jorge Toro-Pozo"
     booktitle: "32nd USENIX Security Symposium (2023)"
     pdf: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2023/mastercard-usenix23.pdf
-    display_btn: "PIN bypass for Mastercard"
+    display_btn: PIN Bypass for Mastercard
     links:
       - name: BibTex
         url: https://ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/information-security-group-dam/research/publications/pub2023/mastercard-usenix23.bib
