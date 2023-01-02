@@ -6,7 +6,7 @@
 
 We have specified a comprehensive model of the EMV protocol, using the [Tamarin](https://tamarin-prover.github.io/) prover. Using our model, we identified several authentication flaws that lead to critical attacks. We describe next how we demonstrated these attacks in practice and afterwards explain each of the attacks in technical details.
 
-### Demonstrating the Attacks
+### Demonstrating the attacks
 
 To demonstrate the feasibility of the attacks, we developed a proof-of-concept Android application. Our app implements the attacks as [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks built on top of a [relay attack](https://en.wikipedia.org/wiki/Relay_attack) architecture, using two NFC-enabled phones.
 
@@ -18,7 +18,7 @@ For the attacks to work, the criminals must have access to the victim's card, ei
 
 Our app does not require root privileges or any hacks to the Android OS. We have used it on Google Pixel, Samsung, and Huawei devices.
 
-### PIN Bypass for Visa Cards
+### PIN bypass for Visa cards
 
 Criminals can complete a purchase over the PIN-required limit with a victim's Visa contactless card without knowing the card's PIN. Namely *the PIN in your Visa card is useless* since it won't prevent your card from being used for unauthorized, high-value purchases.
 
@@ -50,11 +50,11 @@ A full report on this attack is given in our paper:
 {% endfor %}
 </div>
 
-### PIN Bypass for Mastercard Cards
+### PIN bypass for Mastercard cards
 
 We have discovered security flaws that lead to two different variants of a PIN bypass for Mastercard/Maestro cards.
 
-#### Variant 1: Card Brand Mixup
+#### Variant 1: Card brand mixup
 
 Criminals can trick a terminal into transacting with a victim’s Mastercard contactless card while believing it to be a Visa card. This *card brand mixup* attack, in combination with the above PIN bypass for Visa cards, results in a PIN bypass also for Mastercard cards.
 
@@ -92,7 +92,7 @@ A full report on this attack is given in our paper:
 {% endfor %}
 </div>
 
-#### Variant 2: PIN Bypass via Authentication Failures
+#### Variant 2: PIN bypass via authentication failures
 
 In the Mastercard contactless transaction, the payment terminal validates the card offline using a PKI, where the root CA's PK is looked up from a terminal's internal list. The index of this root PK in the list is determined from card-supplied data that can be arbitrarily modified. We have observed that if this index is modified to an invalid one (e.g. one that is out of bounds) then the terminal does **not** perform any PKI checks during the transaction. This flawed failure mode in the protocol makes critical data, whose integrity is only protected offline, vulnerable to adversarial modification. Such critical data includes the card's list of supported methods for cardholder verification. 
 
@@ -129,7 +129,7 @@ A full report on this attack is given in our paper:
 
 ## Media
 
-Our findings have drawn significant media attention (a [Google search](https://www.google.com/search?q=emv+pin+bypass+attack+eth) can give an idea). Below we list some of the most relevant articles available on the web:
+Our findings have attracted significant media attention. Below, we list some of the most relevant articles available on the web:
 
 <div class="row">
 	<div class="col-sm-6">
@@ -204,7 +204,6 @@ Parts of the code of our app were inspired by the apps [EMVemulator](https://git
 
 ## Team
 
-[David Basin](https://www.inf.ethz.ch/personal/basin/), [Ralf Sasse](https://people.inf.ethz.ch/rsasse/), [Patrick Schaller](https://syssec.ethz.ch/people/schaller.html), and [Jorge Toro](https://jorgetp.github.io/)<br />
-Institute of Information Security<br />
-Department of Computer Science<br />
-ETH Zurich
+[David Basin](https://www.inf.ethz.ch/personal/basin/)<sup>1</sup>, [Ralf Sasse](https://people.inf.ethz.ch/rsasse/)<sup>1</sup>, [Patrick Schaller](https://syssec.ethz.ch/people/schaller.html)<sup>1</sup>, and [Jorge Toro](https://jorgetp.github.io/)<sup>2</sup><br />
+<sup>1</sup>ETH Zurich, and <sup>2</sup>SIX Digital Exchange<br />
+<i class="fa fa-map-marker" aria-hidden="true"></i> Zurich, Switzerland
