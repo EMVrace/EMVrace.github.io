@@ -204,6 +204,6 @@ Parts of the code of our app were inspired by the apps [EMVemulator](https://git
 
 ## Team
 
-[David Basin](https://www.inf.ethz.ch/personal/basin/)<sup>1</sup>, [Ralf Sasse](https://people.inf.ethz.ch/rsasse/)<sup>1</sup>, [Patrick Schaller](https://syssec.ethz.ch/people/schaller.html)<sup>1</sup>, and [Jorge Toro](https://jorgetp.github.io/)<sup>2</sup><br />
-<sup>1</sup>ETH Zurich, and <sup>2</sup>SIX Digital Exchange<br />
+[Jorge Toro](https://jorgetp.github.io/)<sup>1</sup>, [David Basin](https://www.inf.ethz.ch/personal/basin/)<sup>2</sup>, [Ralf Sasse](https://people.inf.ethz.ch/rsasse/)<sup>2</sup>, and [Patrick Schaller](https://syssec.ethz.ch/people/schaller.html)<sup>2</sup><br />
+<sup>1</sup>SIX Group Services AG, <sup>2</sup>ETH Zurich<br />
 <i class="fa fa-map-marker" aria-hidden="true"></i> Zurich, Switzerland
